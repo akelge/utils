@@ -5,7 +5,8 @@
 #  Author: Andrea Mistrali <andre@cubeholding.com> 
 #  Description: Scarica cambi da UIC e aggiorna DB
 # 
-#  $Id: cambi_uic.py,v 1.1.1.1 2008-01-28 09:38:45 andre Exp $ 
+#  $Id$
+#  $HeadURL$
 
 # wget -O uic.csv
 # "http://www.uic.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&initDay=06& initMonth=03&initYear=2007&refCur=euro&R1=csv"

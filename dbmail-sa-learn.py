@@ -6,7 +6,8 @@
 #  Author: Andrea Mistrali <andre@cubeholding.com> 
 #  Description: Pass all spam mail to sa-learn
 # 
-#  $Id: dbmail-sa-learn.py,v 1.6 2007-06-20 09:03:12 andre Exp $ 
+#  $Id$
+#  $HeadURL$
 #  
 
 __version__="$Revision: 1.6 $"[11:-2]
