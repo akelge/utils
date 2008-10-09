@@ -12,7 +12,7 @@
 # "http://www.uic.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&initDay=06& initMonth=03&initYear=2007&refCur=euro&R1=csv"
 #http://uif.bancaditalia.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&init Day=07&initMonth=01&initYear=2008&refCur=euro&R1=csv
 
-__version__="$Revision: 1.1.1.1 $"[11:-2]
+__version__="$Revision$"[11:-2]
 
 
 import psycopg2 as db
