@@ -14,7 +14,7 @@ function autoAddDel {
     echo 'svn commit -m "Autocommit - `date +%Y%m%d%H%M` $LOGNAME"'
 }
 
-if [ '$1' == '-h' ]; then
+if [ "$1" == "-h" ]; then
     cat<<EOF
 `basename $0` [-hni]
    -h show help
@@ -24,9 +24,9 @@ EOF
     exit 2
 fi
 
-if [ '$1' == '-n' ]; then
+if [ "$1" == "-n" ]; then
     autoAddDel
-elif [ '$1' == '-i' ]; then
+elif [ "$1" == "-i" ]; then
     echo "Operations:"
     autoAddDel
     echo -n "Confirm [y/n]? "
