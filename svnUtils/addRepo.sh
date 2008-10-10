@@ -1,4 +1,11 @@
 #!/bin/sh
+# Copyright (c)2008 CUBE S.p.A. 
+#  
+#  Author: Andrea Mistrali <andre@cubeholding.com> 
+#  Description: Create a new svn repository, fix permissions and create standard structure
+# 
+#  $Id$ 
+
 if [ $# -lt 1 ]; then
   echo Syntax: `basename $0` "<repositoryName>"
   exit 2
