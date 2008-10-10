@@ -8,10 +8,12 @@
 #  $Id$ 
 
 function autoAddDel {
-    svn status | grep '^?' | sed -e 's/^?      /svn add "/g' -e 's/$/"/g'
-    svn status | grep '^!' | sed -e 's/^!      /svn delete "/g' -e 's/$/"/g'
-    msg="Autocommit - `date +%Y%m%d%H%M` $LOGNAME"
+  svn status | grep '^?' | sed -e 's/^?      /svn add "/g' -e 's/$/"/g'
+  svn status | grep '^!' | sed -e 's/^!      /svn delete "/g' -e 's/$/"/g'
+  msg="Autocommit - `date +%Y%m%d%H%M` $LOGNAME"
+  if [ "$1" != "-n" ]; then
     echo 'svn commit -m "Autocommit - `date +%Y%m%d%H%M` $LOGNAME"'
+  fi
 }
 
 if [ "$1" == "-h" ]; then
@@ -25,7 +27,7 @@ EOF
 fi
 
 if [ "$1" == "-n" ]; then
-    autoAddDel
+    autoAddDel $1
 elif [ "$1" == "-i" ]; then
     echo "Operations:"
     autoAddDel
