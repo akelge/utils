@@ -11,7 +11,7 @@ function autoAddDel {
     svn status | grep '^?' | sed -e 's/^?      /svn add "/g' -e 's/$/"/g'
     svn status | grep '^!' | sed -e 's/^!      /svn delete "/g' -e 's/$/"/g'
     msg="Autocommit - `date +%Y%m%d%H%M` $LOGNAME"
-    echo svn commit -m "Autocommit - `date +%Y%m%d%H%M` $LOGNAME"
+    echo 'svn commit -m "Autocommit - `date +%Y%m%d%H%M` $LOGNAME"'
 }
 
 if [ '$1' == '-h' ]; then
