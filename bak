@@ -1,0 +1,63 @@
+#! /bin/bash
+
+d=no
+TMP=bak`date +%s`
+
+Ricorsivo ()
+{
+if [ "$1" = "" ] ; then
+	PWD=`pwd`
+else
+	PWD=$1
+fi
+cd $PWD
+find ./ -name "*~" -print > /tmp/$TMP 2> /dev/null
+find ./ -name ".*~" -print >> /tmp/$TMP 2> /dev/null
+FILES=`wc -l /tmp/$TMP | cut -d/ -f1 `
+if [ ${FILES} -ge 1 ] ; then
+	rm -f `cat /tmp/$TMP`
+	echo $FILES backup files deleted in $PWD and in its subdirectory
+else
+	echo backup files not found in $PWD and in its subdirectory
+fi
+rm -f /tmp/$TMP
+}
+
+
+Cancella () 
+{
+for n in *~ ; do
+	if [ -e $n ] ; then
+		rm -f $PWD/$n 
+		echo $PWD/$n deleted
+		d=si
+	fi
+done
+for n in .*~ ; do
+	if [ -e $n ] ; then
+		rm -f $PWD/$n 
+		echo $PWD/$n deleted
+		d=si
+	fi
+done
+if [ $d = no ] ; then echo backup files not found in $PWD ; fi
+}
+
+if [ "$1"  = "" ] ; then
+	PWD=`pwd`
+	Cancella
+elif [ $1 = "-h" ] || [ $1 = "--help" ] ; then
+	echo Usage: bak -r [DIRECTORY] 
+	echo
+	echo With no DIRECTORY delete in current directory
+elif [ $1 = "-r" ] ; then
+	Ricorsivo $2
+else 
+	if [ -d $1 ] ; then
+		PWD=$1
+		cd $PWD
+		Cancella
+	else
+		echo $1 is not a directory
+	fi
+fi
