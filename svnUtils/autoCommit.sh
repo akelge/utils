@@ -23,6 +23,7 @@ if [ "$1" == '-h' ]; then
    -n dryrun
    -i interactive: ask confirmation
    message Commit message
+
 EOF
     exit 2
 fi
