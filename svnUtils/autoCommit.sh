@@ -16,7 +16,7 @@ svn commit -m "Autocommit - `date +%Y%m%d%H%M` $LOGNAME $message"
 EOB
 }
 
-if [ '$1' == '-h' ]; then
+if [ "$1" == '-h' ]; then
     cat<<EOF
 `basename $0` [-hni] message
    -h show help
