@@ -21,7 +21,8 @@ TODO Possibilità di lavorare su un'altra mailbox
 import sys
 import getopt
 import os
-import MySQLdb as db
+# import MySQLdb as db
+import psycopg2 as db
 
 
 HOST="db.cube.lan"
@@ -56,7 +57,7 @@ def debug(msg):
   if verbose:
     print msg
 
- 
+
 def feedBlock(msg):
   """outputs messageblock to sa-learn if dryrun is False, else on stdout"""
   global safd
@@ -73,15 +74,12 @@ def getBlocks(messageId):
   query="""SELECT messageblk FROM dbmail_messageblks WHERE physmessage_id=%s ORDER BY messageblk_idnr""" % messageId
   messageBlockCursor.execute(query)
   for messageContent in messageBlockCursor.fetchall():
-    if type(messageContent[0]) == str:
-      text=messageContent[0]
-    else:
-      text=messageContent[0].tostring()
+      text="%s" % messageContent[0]
   return text
 
 def getMailboxID(name=SAMBX, userID=3):
   """retrieves id of mailbox 'name' owned by user 'userID'"""
-  
+
   global connection
   # retrieve ID of Mailbox SAMBX (SpamTraining Mailbox)
   query="SELECT mailbox_idnr FROM dbmail_mailboxes WHERE owner_idnr=%d and name='%s'" % (userID,name)
@@ -94,7 +92,7 @@ def getMailboxID(name=SAMBX, userID=3):
 
 def getMessagesList(mailboxId):
   """retrieves list of physmessage_id's of messages in mailbox"""
-  
+
   global connection
   # Select messages from Mailbox 
   query="""SELECT physmessage_id from dbmail_messages where mailbox_idnr=%s and status < 2 ORDER by physmessage_id """ % mailboxId
@@ -105,7 +103,7 @@ def getMessagesList(mailboxId):
 
 def delMessage(messageId,mailboxId):
   """set message with physmessage_id=messageId to deleted status"""
-  
+
   global connection
   # Now we have retrieved message, let's set its status to 2.
   query="UPDATE dbmail_messages SET status=2,deleted_flag=1 WHERE physmessage_id=%s AND mailbox_idnr=%s;" % (messageId, mailboxId)
@@ -133,10 +131,10 @@ def getWorkDone():
         print "spamOnly, skipping %s" % mbx
         continue
       safd=os.popen("sa-learn --ham --mbox", 'w')
-      
+
     # Get mailbox ID
     mailboxId=getMailboxID(mbx)  
-  
+
     # Process every message in mailbox
     for message in getMessagesList(mailboxId):
       # We need a "From " line at start of message
@@ -149,7 +147,7 @@ def getWorkDone():
 
     if not dryrun:
       safd.close()
-      
+
 def main(argv=None):
   if argv is None:
     argv = sys.argv
@@ -158,7 +156,7 @@ def main(argv=None):
       opts, args = getopt.getopt(argv[1:], "hvnHS", ["help", "verbose","dryrun", "ham", "spam"])
     except getopt.error, msg:
       raise Usage("%s\n%s" % (msg,help_message))
-  
+
     # option processing
     for option, value in opts:
       if option in ("-S", "--spam"):
@@ -175,17 +173,17 @@ def main(argv=None):
         dryrun = True
       if option in ("-h", "--help"):
         raise Usage(help_message)
-   
+
   except Usage, err:
     print >> sys.stderr, sys.argv[0].split("/")[-1] + ": " + str(err.msg)
     return 2
-    
+
   # Connect to DB & open connection to sa-learn
   global connection
-  connection=db.connect(db=DB,host=HOST,user=USER,passwd=PWD)
- 
+  connection=db.connect(database=DB,host=HOST,user=USER,password=PWD)
+
   getWorkDone()
-  
+
   # Close connection to DB & to sa-learn
   connection.close()
 
