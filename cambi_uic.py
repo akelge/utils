@@ -23,8 +23,7 @@ import csv
 import getopt, sys
 
 currency={'USD': 2, 'GBP': 3}
-baseUrl="http://uif.bancaditalia.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&initDay=%02d&initMonth=%02d&initYear=%4d&refCur=euro&R1=csv"
-USDbaseUrl="http://uif.bancaditalia.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&initDay=%02d&initMonth=%02d&initYear=%4d&refCur=dollari&R1=csv"
+baseUrl="http://uif.bancaditalia.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&initDay=%02d&initMonth=%02d&initYear=%4d&refCur=%s&R1=csv"
 
 DB="gv"
 HOST="localhost"
@@ -33,7 +32,7 @@ PWD="chpwd"
 
 DSN="dbname=%s user=%s password=%s host=%s" % (DB, USER, PWD, HOST)
 
-EUROUTFILE="/tmp/EURnewUic%s.csv"
+OUTFILE="/tmp/%snewUic%s.csv"
 USDOUTFILE="/tmp/USDnewUic%s.csv"
 
 def usage():
@@ -47,27 +46,31 @@ def usage():
     Tutte le date vanno indicate nel formato "dd/mm/yyyy".
     """ % (sys.argv[0], sys.argv[0])
 
-def download(date):
+def download(date, writeFile=True):
     """
     Scarica il file relativo ad una certa data e rende il file parserato
     date è un array [dd,mm,yyyy]
     """
-    url=baseUrl % (date[0], date[1], date[2])
-    USDurl=USDbaseUrl % (date[0], date[1], date[2])
+    EURurl=baseUrl % (date[0], date[1], date[2], 'euro')
+    USDurl=baseUrl % (date[0], date[1], date[2], 'dollari')
+    strDate="%d%02d%02d" % (date[2], date[1], date[0])
 
-    print "Scarico da %s" % url
-    f=urllib2.urlopen(url)
+    print "Scarico da %s" % EURurl
+    f=urllib2.urlopen(EURurl)
     t=f.readlines()
+    if writeFile:
+        out=open(OUTFILE % ('EUR', strDate), 'w')
+        out.write(''.join(t))
+        out.close()
     reader=csv.reader(t)
 
 # Hack per prelevare anche i cambi in Dollari
-    print "\nScarico da %s" % USDurl
-    strDate="%d%02d%02d" % (date[2], date[1], date[0])
-    f=urllib2.urlopen(USDurl)
-    t=f.readlines()
-    out=open(USDOUTFILE % strDate, 'w')
-    out.write(''.join(t))
-    out.close()
+    if writeFile:
+        print "Scarico da %s" % USDurl
+        f=urllib2.urlopen(USDurl)
+        out=open(OUTFILE % ('USD', strDate), 'w')
+        out.write(''.join(f.readlines()))
+        out.close()
     return reader
 
 def insertOrUpdate(date, cod1, cod2, cambio):
@@ -161,18 +164,20 @@ def main():
         done=False
         if writeFile:
             strDate="%d%02d%02d" % (startDate.year, startDate.month, startDate.day)
-            of=open(EUROUTFILE % strDate, 'w+')
-            w=csv.writer(of)
+            # of=open(EUROUTFILE % strDate, 'w+')
+            # w=csv.writer(of)
 
         dateArray=[startDate.day, startDate.month, startDate.year]
-        reader=download(map(int, dateArray))
+        reader=download(map(int, dateArray), writeFile=writeFile)
         dbDate="%04d-%02d-%02d" % (dateArray[2], dateArray[1], dateArray[0])
         for l in reader:
             if len(l) > 1:
-                if writeFile:
-                    w.writerow(l)
+                # if writeFile:
+                    # w.writerow(l)
                 done=True
                 if l[2] in currency.keys() and dbInsert:
+                    # if writeFile:
+                           # w.writerow(l)
                     insertOrUpdate(dbDate, 1, currency[l[2]], float(l[4]))
         if done and dbInsert:
             # Inseriamo i cambi fissi
@@ -180,8 +185,8 @@ def main():
             insertOrUpdate(dbDate, 2, 2, 1)
             insertOrUpdate(dbDate, 3, 3, 1)
 
-        if writeFile:
-            of.close()
+        # if writeFile:
+            # of.close()
         startDate=startDate+oneDay
 
 
