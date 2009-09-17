@@ -8,8 +8,6 @@
 #  $Id$
 #  $HeadURL$
 
-# wget -O uic.csv
-# "http://www.uic.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&initDay=06& initMonth=03&initYear=2007&refCur=euro&R1=csv"
 #http://uif.bancaditalia.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&init Day=07&initMonth=01&initYear=2008&refCur=euro&R1=csv
 
 __version__="$Revision$"[11:-2]
@@ -32,7 +30,6 @@ USER="root"
 PWD="chpwd"
 
 DSN="dbname=%s user=%s password=%s host=%s" % (DB, USER, PWD, HOST)
-
 
 def usage():
     print """
@@ -103,9 +100,6 @@ def insertOrUpdate(date, cod1, cod2, cambio):
         cursor.execute(updQuery)
     connection.commit()
 
-
-
-
 def main():
     done=False
     writeFile=True
@@ -163,20 +157,14 @@ def main():
         done=False
         if writeFile:
             strDate="%d%02d%02d" % (startDate.year, startDate.month, startDate.day)
-            # of=open(EUROUTFILE % strDate, 'w+')
-            # w=csv.writer(of)
 
         dateArray=[startDate.day, startDate.month, startDate.year]
         reader=download(map(int, dateArray), writeFile=writeFile)
         dbDate="%04d-%02d-%02d" % (dateArray[2], dateArray[1], dateArray[0])
         for l in reader:
             if len(l) > 1:
-                # if writeFile:
-                    # w.writerow(l)
                 done=True
                 if l[2] in currency.keys() and dbInsert:
-                    # if writeFile:
-                           # w.writerow(l)
                     insertOrUpdate(dbDate, 1, currency[l[2]], float(l[4]))
         if done and dbInsert:
             # Inseriamo i cambi fissi
@@ -184,8 +172,6 @@ def main():
             insertOrUpdate(dbDate, 2, 2, 1)
             insertOrUpdate(dbDate, 3, 3, 1)
 
-        # if writeFile:
-            # of.close()
         startDate=startDate+oneDay
 
 
