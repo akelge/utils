@@ -24,6 +24,7 @@ import getopt, sys
 
 currency={'USD': 2, 'GBP': 3}
 baseUrl="http://uif.bancaditalia.it/UICFEWebroot/QueryOneDateAllCur?lang=ita&rate=0&initDay=%02d&initMonth=%02d&initYear=%4d&refCur=%s&R1=csv"
+OUTFILE="/tmp/%snewUic%s.csv"
 
 DB="gv"
 HOST="localhost"
@@ -32,8 +33,6 @@ PWD="chpwd"
 
 DSN="dbname=%s user=%s password=%s host=%s" % (DB, USER, PWD, HOST)
 
-OUTFILE="/tmp/%snewUic%s.csv"
-USDOUTFILE="/tmp/USDnewUic%s.csv"
 
 def usage():
     print """
