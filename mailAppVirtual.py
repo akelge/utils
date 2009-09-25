@@ -5,7 +5,7 @@
 
  Copyright by Andrea Mistrali <am@am.cx>
  First version: 2009-09-25T13:07 CEST (+0200)
- Last modified: 2009-09-25T13:18 CEST (+0200)
+ Last modified: 2009-09-25T13:20 CEST (+0200)
 
  Synopsis: Mail.app Virtual Identities Manager
 
@@ -62,7 +62,7 @@ class Account:
             print "%2d %-20s" % (accountList.index(a),a['AccountName'])
         print
         choice=-1
-        while choice not in map(str,range(0,len(accountList)-1)):
+        while choice not in map(str,range(0,len(accountList))):
             choice=raw_input('Id [0-%d]> ' % (len(accountList)-1))
         self.accountIndex=int(choice)
         self.account=accountList[self.accountIndex]
