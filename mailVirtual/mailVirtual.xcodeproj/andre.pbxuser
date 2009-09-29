@@ -144,13 +144,16 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 275922566;
-			PBXWorkspaceStateSaveDate = 275922566;
+			PBXPerProjectTemplateStateSaveDate = 275922614;
+			PBXWorkspaceStateSaveDate = 275922614;
 		};
 		perUserProjectItems = {
-			655E011010723E9000578EC5 /* PBXTextBookmark */ = 655E011010723E9000578EC5 /* PBXTextBookmark */;
-			658D0203107238DE0070AF1A /* PBXBookmark */ = 658D0203107238DE0070AF1A /* PBXBookmark */;
-			658D023210723E6F0070AF1A /* PBXTextBookmark */ = 658D023210723E6F0070AF1A /* PBXTextBookmark */;
+			655E011010723E9000578EC5 = 655E011010723E9000578EC5 /* PBXTextBookmark */;
+			658D0203107238DE0070AF1A = 658D0203107238DE0070AF1A /* PBXBookmark */;
+			658D023210723E6F0070AF1A = 658D023210723E6F0070AF1A /* PBXTextBookmark */;
+			65B0465310723ECF0016A622 /* PBXTextBookmark */ = 65B0465310723ECF0016A622 /* PBXTextBookmark */;
+			65B0465410723ECF0016A622 /* PlistBookmark */ = 65B0465410723ECF0016A622 /* PlistBookmark */;
+			65B0465510723ECF0016A622 /* PlistBookmark */ = 65B0465510723ECF0016A622 /* PlistBookmark */;
 		};
 		sourceControlManager = 6506FC9B106D14BE00DADCF9 /* Source Control */;
 		userBuildSettings = {
@@ -243,6 +246,39 @@
 		vrLen = 665;
 		vrLoc = 301;
 	};
+	65B0465310723ECF0016A622 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */;
+		name = "mailVirtualAppDelegate.py: 16";
+		rLen = 0;
+		rLoc = 367;
+		rType = 0;
+		vrLen = 591;
+		vrLoc = 291;
+	};
+	65B0465410723ECF0016A622 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/andre/Desktop/mailVirtual/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	65B0465510723ECF0016A622 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleSignature,
+		);
+		name = /Users/andre/Desktop/mailVirtual/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
 	65C0086E1070BF7700B87932 /* account.py */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {690, 1066}}";
@@ -261,7 +297,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {913, 1534}}";
 			sepNavSelRange = "{367, 0}";
-			sepNavVisRange = "{301, 651}";
+			sepNavVisRange = "{291, 591}";
 		};
 	};
 	8D1107260486CEB800E47090 /* mailVirtual */ = {

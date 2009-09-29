@@ -304,7 +304,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
+									<integer>7</integer>
+									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -344,7 +345,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>65873503107229B60017BFCD</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>mailVirtualAppDelegate.py</string>
+								<string>Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -352,15 +353,16 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>65873504107229B60017BFCD</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>mailVirtualAppDelegate.py</string>
+										<string>Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>655E011010723E9000578EC5</string>
+										<string>65B0465510723ECF0016A622</string>
 										<key>history</key>
 										<array>
 											<string>658D0203107238DE0070AF1A</string>
-											<string>658D023210723E6F0070AF1A</string>
+											<string>65B0465310723ECF0016A622</string>
+											<string>65B0465410723ECF0016A622</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -374,23 +376,21 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {974, 274}}</string>
+								<string>{{0, 0}, {974, 262}}</string>
 								<key>RubberWindowFrame</key>
 								<string>27 373 1181 655 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>274pt</string>
+							<string>262pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>335pt</string>
+							<string>347pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -401,7 +401,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {974, 308}}</string>
+										<string>{{10, 27}, {974, 320}}</string>
 										<key>RubberWindowFrame</key>
 										<string>27 373 1181 655 0 0 1680 1028 </string>
 									</dict>
@@ -506,11 +506,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>655E010710723E9000578EC5</string>
+				<string>65B0465610723ECF0016A622</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>655E010810723E9000578EC5</string>
+				<string>65B0465710723ECF0016A622</string>
 				<string>65873503107229B60017BFCD</string>
-				<string>655E010910723E9000578EC5</string>
+				<string>65B0465810723ECF0016A622</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -659,14 +659,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>655E010A10723E9000578EC5</string>
+				<string>65B0465910723ECF0016A622</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>655E010B10723E9000578EC5</string>
-				<string>655E010C10723E9000578EC5</string>
-				<string>655E010D10723E9000578EC5</string>
-				<string>655E010E10723E9000578EC5</string>
-				<string>655E010F10723E9000578EC5</string>
+				<string>65B0465A10723ECF0016A622</string>
+				<string>65B0465B10723ECF0016A622</string>
+				<string>65B0465C10723ECF0016A622</string>
+				<string>65B0465D10723ECF0016A622</string>
+				<string>65B0465E10723ECF0016A622</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
 			<string>2</string>
@@ -683,7 +683,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>275922576.19537097</real>
+	<real>275922639.87326097</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
