@@ -47,6 +47,7 @@ class Account:
         self.account=accountDict
         self.name=self.account['AccountName']
         self.parent=parent
+        self.mainAddress = "%s <%s>" % (self.account['FullUserName'], self.account['EmailAddresses'][0])
 
         # Setup Aliases
         if not self.account.has_key('EmailAliases'):

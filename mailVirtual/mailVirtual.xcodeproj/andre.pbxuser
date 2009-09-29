@@ -2,14 +2,17 @@
 {
 	089C165DFE840E0CC02AAC07 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1391, 459}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {691, 430}}";
+			sepNavSelRange = "{103, 0}";
 			sepNavVisRange = "{0, 103}";
+			sepNavWindowFrame = "{{38, 444}, {750, 558}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeArchitecturePreference = i386;
 		activeBuildConfigurationName = Release;
 		activeExecutable = 6506FC87106D14B300DADCF9 /* mailVirtual */;
+		activeSDKPreference = macosx10.5;
 		activeTarget = 8D1107260486CEB800E47090 /* mailVirtual */;
 		addToTargets = (
 			8D1107260486CEB800E47090 /* mailVirtual */,
@@ -19,13 +22,37 @@
 			6506FC87106D14B300DADCF9 /* mailVirtual */,
 		);
 		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA23EDF0692099D00951B8B" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					211,
+					20,
+					111,
+					111,
+					41,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
 			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
 				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					22,
 					300,
-					399.58349609375,
+					252,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXExecutablesDataSource_ActiveFlagID,
@@ -38,7 +65,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					364,
+					735,
 					20,
 					48,
 					43,
@@ -62,7 +89,7 @@
 					16,
 					200,
 					50,
-					1153,
+					304,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXSymbolsDataSource_SymbolTypeIconID,
@@ -100,7 +127,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					472,
+					324,
 					60,
 					20,
 					48,
@@ -117,18 +144,13 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 275917235;
-			PBXWorkspaceStateSaveDate = 275917235;
+			PBXPerProjectTemplateStateSaveDate = 275922566;
+			PBXWorkspaceStateSaveDate = 275922566;
 		};
 		perUserProjectItems = {
-			652228DB1070A0B000D700E1 = 652228DB1070A0B000D700E1 /* PBXTextBookmark */;
-			65493B351072295D00642138 = 65493B351072295D00642138 /* PBXTextBookmark */;
-			658734EE1072298C0017BFCD = 658734EE1072298C0017BFCD /* PBXTextBookmark */;
-			65950DD2106D25610015C589 = 65950DD2106D25610015C589 /* PBXTextBookmark */;
-			65950DD3106D25610015C589 = 65950DD3106D25610015C589 /* PlistBookmark */;
-			65950DE7106D26510015C589 = 65950DE7106D26510015C589 /* PBXTextBookmark */;
-			65A688311072294700C247F4 = 65A688311072294700C247F4 /* PBXTextBookmark */;
-			65C0087A1070BF8000B87932 = 65C0087A1070BF8000B87932 /* PBXTextBookmark */;
+			655E011010723E9000578EC5 /* PBXTextBookmark */ = 655E011010723E9000578EC5 /* PBXTextBookmark */;
+			658D0203107238DE0070AF1A /* PBXBookmark */ = 658D0203107238DE0070AF1A /* PBXBookmark */;
+			658D023210723E6F0070AF1A /* PBXTextBookmark */ = 658D023210723E6F0070AF1A /* PBXTextBookmark */;
 		};
 		sourceControlManager = 6506FC9B106D14BE00DADCF9 /* Source Control */;
 		userBuildSettings = {
@@ -189,7 +211,7 @@
 		isSCMEnabled = 0;
 		scmConfiguration = {
 			repositoryNamesForRoots = {
-				"" = "";
+				"" = Utils;
 			};
 		};
 	};
@@ -197,76 +219,29 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	652228DB1070A0B000D700E1 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
-		name = "main.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1032;
-		vrLoc = 293;
-	};
-	65493B351072295D00642138 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65C0086E1070BF7700B87932 /* account.py */;
-		name = "account.py: 81";
-		rLen = 0;
-		rLoc = 2290;
-		rType = 0;
-		vrLen = 350;
-		vrLoc = 1314;
-	};
-	658734EE1072298C0017BFCD /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 65C0086E1070BF7700B87932 /* account.py */;
-		name = "account.py: 81";
-		rLen = 0;
-		rLoc = 2290;
-		rType = 0;
-		vrLen = 317;
-		vrLoc = 1347;
-	};
-	65950DD2106D25610015C589 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 089C165DFE840E0CC02AAC07 /* English */;
-		name = "InfoPlist.strings: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 103;
-		vrLoc = 0;
-	};
-	65950DD3106D25610015C589 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = /Users/andre/Desktop/mailVirtual/Info.plist;
-		rLen = 0;
-		rLoc = 9223372036854775808;
-	};
-	65950DE7106D26510015C589 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 77631A3E0C0748CF005415CB /* main.py */;
-		name = "main.py: 23";
-		rLen = 0;
-		rLoc = 442;
-		rType = 0;
-		vrLen = 442;
-		vrLoc = 0;
-	};
-	65A688311072294700C247F4 /* PBXTextBookmark */ = {
+	655E011010723E9000578EC5 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */;
-		name = "mailVirtualAppDelegate.py: 121";
+		name = "mailVirtualAppDelegate.py: 18";
 		rLen = 0;
-		rLoc = 3610;
+		rLoc = 367;
 		rType = 0;
-		vrLen = 458;
-		vrLoc = 723;
+		vrLen = 651;
+		vrLoc = 301;
+	};
+	658D0203107238DE0070AF1A /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 6552622210723583000C1FE6 /* Matrixmail.icns */;
+	};
+	658D023210723E6F0070AF1A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */;
+		name = "mailVirtualAppDelegate.py: 18";
+		rLen = 0;
+		rLoc = 367;
+		rType = 0;
+		vrLen = 665;
+		vrLoc = 301;
 	};
 	65C0086E1070BF7700B87932 /* account.py */ = {
 		uiCtxt = {
@@ -274,16 +249,6 @@
 			sepNavSelRange = "{2290, 0}";
 			sepNavVisRange = "{1347, 317}";
 		};
-	};
-	65C0087A1070BF8000B87932 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 32CA4F630368D1EE00C91783 /* mailVirtual_Prefix.pch */;
-		name = "mailVirtual_Prefix.pch: 8";
-		rLen = 0;
-		rLoc = 153;
-		rType = 0;
-		vrLen = 153;
-		vrLoc = 0;
 	};
 	77631A3E0C0748CF005415CB /* main.py */ = {
 		uiCtxt = {
@@ -294,9 +259,9 @@
 	};
 	7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {698, 1573}}";
-			sepNavSelRange = "{3610, 0}";
-			sepNavVisRange = "{723, 458}";
+			sepNavIntBoundsRect = "{{0, 0}, {913, 1534}}";
+			sepNavSelRange = "{367, 0}";
+			sepNavVisRange = "{301, 651}";
 		};
 	};
 	8D1107260486CEB800E47090 /* mailVirtual */ = {
@@ -304,5 +269,10 @@
 		executables = (
 			6506FC87106D14B300DADCF9 /* mailVirtual */,
 		);
+	};
+	8D1107310486CEB800E47090 /* Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 465}, {750, 558}}";
+		};
 	};
 }

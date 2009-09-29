@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6552622310723583000C1FE6 /* Matrixmail.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6552622210723583000C1FE6 /* Matrixmail.icns */; };
 		65950DE0106D263C0015C589 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		65C0086F1070BF7700B87932 /* account.py in Resources */ = {isa = PBXBuildFile; fileRef = 65C0086E1070BF7700B87932 /* account.py */; };
 		77631A270C06C501005415CB /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77631A260C06C501005415CB /* Python.framework */; };
@@ -26,6 +27,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* mailVirtual_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mailVirtual_Prefix.pch; sourceTree = "<group>"; };
+		6552622210723583000C1FE6 /* Matrixmail.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Matrixmail.icns; sourceTree = "<group>"; };
 		65C0086E1070BF7700B87932 /* account.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = account.py; sourceTree = "<group>"; };
 		77631A260C06C501005415CB /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		77631A3E0C0748CF005415CB /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6552622210723583000C1FE6 /* Matrixmail.icns */,
 				77C8C1F70C07829500965286 /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -152,6 +155,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "CUBE Gestioni";
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "mailVirtual" */;
 			compatibilityVersion = "Xcode 3.0";
 			hasScannedForEncodings = 1;
@@ -174,6 +180,7 @@
 				7790198F0C07548A00326F66 /* mailVirtualAppDelegate.py in Resources */,
 				77C8C1F90C07829500965286 /* MainMenu.xib in Resources */,
 				65C0086F1070BF7700B87932 /* account.py in Resources */,
+				6552622310723583000C1FE6 /* Matrixmail.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

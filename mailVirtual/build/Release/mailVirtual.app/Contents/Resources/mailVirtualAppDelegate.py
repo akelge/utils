@@ -5,6 +5,7 @@
 #  Created by Andrea Mistrali on 25/09/09.
 #  Copyright Cube Gestioni S.r.l. 2009. All rights reserved.
 #
+# $Id$
 
 from objc import YES, NO, IBAction, IBOutlet, pyobjc_unicode
 import os
@@ -60,6 +61,7 @@ class aliasesTable(NSObject):
 class mailVirtualAppDelegate(NSObject):
     accountList = IBOutlet('accountList')
     aliasesListTable = IBOutlet('aliasesListTable')
+    mainAddress = IBOutlet('mainAddress')
 
     def awakeFromNib(self):
         NSLog("Application did finish launching.")
@@ -68,7 +70,7 @@ class mailVirtualAppDelegate(NSObject):
         for account in self.accounts.accountList:
             self.accountList.addItemWithTitle_(account.name)
         self.selectedAccount=self.accounts.accountList[0]
-        print self.selectedAccount.mainAddress
+        self.mainAddress.setStringValue_(self.selectedAccount.mainAddress)
         self.populateTable_(None)
 
     @IBAction
@@ -80,11 +82,10 @@ class mailVirtualAppDelegate(NSObject):
 
     @IBAction
     def selectAccount_(self, sender):
-        print sender.title()
         idx=self.accountList.indexOfSelectedItem()
         self.selectedAccount=self.accounts.accountList[idx]
+        self.mainAddress.setStringValue_(self.selectedAccount.mainAddress)
         self.populateTable_(sender)
-        print self.accounts.accountList[idx]
 
     @IBAction
     def addAlias_(self,sender):

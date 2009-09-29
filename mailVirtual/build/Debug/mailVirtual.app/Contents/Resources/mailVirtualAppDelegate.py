@@ -5,6 +5,7 @@
 #  Created by Andrea Mistrali on 25/09/09.
 #  Copyright Cube Gestioni S.r.l. 2009. All rights reserved.
 #
+# $Id$
 
 from objc import YES, NO, IBAction, IBOutlet, pyobjc_unicode
 import os
@@ -22,13 +23,10 @@ class aliasesTable(NSObject):
     def tableView_objectValueForTableColumn_row_(self, tableView, tableColumn, row):
         identity = self.identitiesList[row]
         identifier = tableColumn.identifier()
-        if type(identity) == pyobjc_unicode:
-            return identity
         return identity[identifier]
 
     def tableView_setObjectValue_forTableColumn_row_(self, tableView, identity, tableColumn, row):
         self.identitiesList[row][tableColumn.identifier()]=identity
-        self.account.aliases[row][tableColumn.identifier()]=identity
 
     def setIdentity(self,identity,row):
         if row < len(self.identities):
@@ -54,14 +52,6 @@ class aliasesTable(NSObject):
         self.counter += 1
         self.identitiesList.append(identity)
 
-    def remove(self,idx):
-        self.counter -= 1
-        self.identitiesList.pop(idx)
-
-    def removeSelected(self):
-        idx=self.selectedRow_()
-        print idx
-
     def __len__(self):
         return self.counter
 
@@ -71,6 +61,7 @@ class aliasesTable(NSObject):
 class mailVirtualAppDelegate(NSObject):
     accountList = IBOutlet('accountList')
     aliasesListTable = IBOutlet('aliasesListTable')
+    mainAddress = IBOutlet('mainAddress')
 
     def awakeFromNib(self):
         NSLog("Application did finish launching.")
@@ -79,22 +70,23 @@ class mailVirtualAppDelegate(NSObject):
         for account in self.accounts.accountList:
             self.accountList.addItemWithTitle_(account.name)
         self.selectedAccount=self.accounts.accountList[0]
+        print self.mainAddress
+        self.mainAddress.setStringValue_(self.selectedAccount.mainAddress)
         self.populateTable_(None)
 
     @IBAction
     def populateTable_(self, sender):
         self.myAliasTable=aliasesTable.alloc().init()
-        self.myAliasTable.setIdentities(self.selectedAccount.listDict())
+        self.myAliasTable.setIdentities(self.selectedAccount.aliases)
         self.myAliasTable.setAccount(self.selectedAccount)
         self.aliasesListTable.setDataSource_(self.myAliasTable)
 
     @IBAction
     def selectAccount_(self, sender):
-        print sender.title()
         idx=self.accountList.indexOfSelectedItem()
         self.selectedAccount=self.accounts.accountList[idx]
+        self.mainAddress.setStringValue_(self.selectedAccount.mainAddress)
         self.populateTable_(sender)
-        print self.accounts.accountList[idx]
 
     @IBAction
     def addAlias_(self,sender):
@@ -104,14 +96,19 @@ class mailVirtualAppDelegate(NSObject):
     @IBAction
     def delAlias_(self, sender):
         idx=self.aliasesListTable.selectedRow()
-        self.selectedAccount.delAlias(idx)
-        self.populateTable_(self)
+        if idx > 0:
+            self.selectedAccount.delAlias(idx)
+            self.populateTable_(self)
+        else:
+            print self.myAliasTable.identities
 
     @IBAction
     def quit_(self, sender):
         print sender.title()
+        NSQuitCommand()
 
     @IBAction
     def save_(self, sender):
-        print sender.title()
+        for item in self.selectedAccount.aliases:
+            print "'%s' -> '%s'" % (item['name'], item['alias'])
         self.accounts.save()
