@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	089C165DFE840E0CC02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1391, 459}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 103}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = 6506FC87106D14B300DADCF9 /* mailVirtual */;
+		activeTarget = 8D1107260486CEB800E47090 /* mailVirtual */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* mailVirtual */,
+		);
+		codeSenseManager = 6506FC9C106D14BE00DADCF9 /* Code sense */;
+		executables = (
+			6506FC87106D14B300DADCF9 /* mailVirtual */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					399.58349609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					364,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					1153,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					1189,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_SCM_ColumnID,
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					472,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 275917235;
+			PBXWorkspaceStateSaveDate = 275917235;
+		};
+		perUserProjectItems = {
+			652228DB1070A0B000D700E1 = 652228DB1070A0B000D700E1 /* PBXTextBookmark */;
+			65493B351072295D00642138 = 65493B351072295D00642138 /* PBXTextBookmark */;
+			658734EE1072298C0017BFCD = 658734EE1072298C0017BFCD /* PBXTextBookmark */;
+			65950DD2106D25610015C589 = 65950DD2106D25610015C589 /* PBXTextBookmark */;
+			65950DD3106D25610015C589 = 65950DD3106D25610015C589 /* PlistBookmark */;
+			65950DE7106D26510015C589 = 65950DE7106D26510015C589 /* PBXTextBookmark */;
+			65A688311072294700C247F4 = 65A688311072294700C247F4 /* PBXTextBookmark */;
+			65C0087A1070BF8000B87932 = 65C0087A1070BF8000B87932 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 6506FC9B106D14BE00DADCF9 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2157.71, 1050}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{293, 1032}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* mailVirtual_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1391, 441}}";
+			sepNavSelRange = "{153, 0}";
+			sepNavVisRange = "{0, 153}";
+		};
+	};
+	6506FC87106D14B300DADCF9 /* mailVirtual */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+			{
+				active = YES;
+				name = USE_PDB;
+				value = 1;
+			},
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = mailVirtual;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	6506FC9B106D14BE00DADCF9 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	6506FC9C106D14BE00DADCF9 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	652228DB1070A0B000D700E1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1032;
+		vrLoc = 293;
+	};
+	65493B351072295D00642138 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65C0086E1070BF7700B87932 /* account.py */;
+		name = "account.py: 81";
+		rLen = 0;
+		rLoc = 2290;
+		rType = 0;
+		vrLen = 350;
+		vrLoc = 1314;
+	};
+	658734EE1072298C0017BFCD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65C0086E1070BF7700B87932 /* account.py */;
+		name = "account.py: 81";
+		rLen = 0;
+		rLoc = 2290;
+		rType = 0;
+		vrLen = 317;
+		vrLoc = 1347;
+	};
+	65950DD2106D25610015C589 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "InfoPlist.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 103;
+		vrLoc = 0;
+	};
+	65950DD3106D25610015C589 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/andre/Desktop/mailVirtual/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	65950DE7106D26510015C589 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 77631A3E0C0748CF005415CB /* main.py */;
+		name = "main.py: 23";
+		rLen = 0;
+		rLoc = 442;
+		rType = 0;
+		vrLen = 442;
+		vrLoc = 0;
+	};
+	65A688311072294700C247F4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */;
+		name = "mailVirtualAppDelegate.py: 121";
+		rLen = 0;
+		rLoc = 3610;
+		rType = 0;
+		vrLen = 458;
+		vrLoc = 723;
+	};
+	65C0086E1070BF7700B87932 /* account.py */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {690, 1066}}";
+			sepNavSelRange = "{2290, 0}";
+			sepNavVisRange = "{1347, 317}";
+		};
+	};
+	65C0087A1070BF8000B87932 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* mailVirtual_Prefix.pch */;
+		name = "mailVirtual_Prefix.pch: 8";
+		rLen = 0;
+		rLoc = 153;
+		rType = 0;
+		vrLen = 153;
+		vrLoc = 0;
+	};
+	77631A3E0C0748CF005415CB /* main.py */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1391, 459}}";
+			sepNavSelRange = "{442, 0}";
+			sepNavVisRange = "{0, 442}";
+		};
+	};
+	7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {698, 1573}}";
+			sepNavSelRange = "{3610, 0}";
+			sepNavVisRange = "{723, 458}";
+		};
+	};
+	8D1107260486CEB800E47090 /* mailVirtual */ = {
+		activeExec = 0;
+		executables = (
+			6506FC87106D14B300DADCF9 /* mailVirtual */,
+		);
+	};
+}
