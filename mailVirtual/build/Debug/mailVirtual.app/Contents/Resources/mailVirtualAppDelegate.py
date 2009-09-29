@@ -70,11 +70,9 @@ class mailVirtualAppDelegate(NSObject):
         for account in self.accounts.accountList:
             self.accountList.addItemWithTitle_(account.name)
         self.selectedAccount=self.accounts.accountList[0]
-        print self.mainAddress
         self.mainAddress.setStringValue_(self.selectedAccount.mainAddress)
         self.populateTable_(None)
 
-    @IBAction
     def populateTable_(self, sender):
         self.myAliasTable=aliasesTable.alloc().init()
         self.myAliasTable.setIdentities(self.selectedAccount.aliases)
@@ -96,16 +94,31 @@ class mailVirtualAppDelegate(NSObject):
     @IBAction
     def delAlias_(self, sender):
         idx=self.aliasesListTable.selectedRow()
-        if idx > 0:
+        if idx > -1:
             self.selectedAccount.delAlias(idx)
             self.populateTable_(self)
-        else:
-            print self.myAliasTable.identities
 
     @IBAction
-    def quit_(self, sender):
-        print sender.title()
-        NSQuitCommand()
+    def enableUp_(self, sender):
+        idx=self.aliasesListTable.selectedRow()
+        return (idx != 0)
+
+    @IBAction
+    def moveUp_(self, sender):
+        self.moveUpDown(step=1)
+
+    @IBAction
+    def moveDown_(self, sender):
+        self.moveUpDown(step=-1)
+
+    def moveUpDown(self, step):
+        idx=self.aliasesListTable.selectedRow()
+        aliases=self.selectedAccount.aliases
+        if idx-step > -1:
+            item=aliases.pop(idx)
+            aliases.insert(idx-step, item)
+            self.populateTable_(self)
+            self.aliasesListTable.selectRowIndexes_byExtendingSelection_(NSIndexSet.indexSetWithIndex_(idx-step), False)
 
     @IBAction
     def save_(self, sender):
