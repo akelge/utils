@@ -167,6 +167,8 @@
 			65D170E21072569A00E844D0 /* PBXTextBookmark */ = 65D170E21072569A00E844D0 /* PBXTextBookmark */;
 			65D170E5107256AD00E844D0 /* PBXTextBookmark */ = 65D170E5107256AD00E844D0 /* PBXTextBookmark */;
 			65D170E6107256AD00E844D0 /* PBXTextBookmark */ = 65D170E6107256AD00E844D0 /* PBXTextBookmark */;
+			65D170EA107256C500E844D0 /* PBXTextBookmark */ = 65D170EA107256C500E844D0 /* PBXTextBookmark */;
+			65D170ED107256D200E844D0 /* PBXTextBookmark */ = 65D170ED107256D200E844D0 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 6506FC9B106D14BE00DADCF9 /* Source Control */;
 		userBuildSettings = {
@@ -428,6 +430,26 @@
 		vrLen = 617;
 		vrLoc = 2043;
 	};
+	65D170EA107256C500E844D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */;
+		name = "mailVirtualAppDelegate.py: 128";
+		rLen = 0;
+		rLoc = 4085;
+		rType = 0;
+		vrLen = 506;
+		vrLoc = 2154;
+	};
+	65D170ED107256D200E844D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */;
+		name = "mailVirtualAppDelegate.py: 128";
+		rLen = 0;
+		rLoc = 4085;
+		rType = 0;
+		vrLen = 668;
+		vrLoc = 2043;
+	};
 	77631A3E0C0748CF005415CB /* main.py */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1391, 459}}";
@@ -439,7 +461,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {913, 1599}}";
 			sepNavSelRange = "{4085, 0}";
-			sepNavVisRange = "{2043, 617}";
+			sepNavVisRange = "{2043, 668}";
 		};
 	};
 	8D1107260486CEB800E47090 /* mailVirtual */ = {
