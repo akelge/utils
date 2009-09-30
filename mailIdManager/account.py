@@ -5,6 +5,7 @@
 #  Created by Andrea Mistrali on 25/09/09.
 #  Copyright (c) 2009 Cube2 Gestioni S.r.l.. All rights reserved.
 #
+# $Id$
 
 import plistlib
 from os import system

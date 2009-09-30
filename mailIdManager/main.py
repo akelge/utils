@@ -5,6 +5,7 @@
 #  Created by Andrea Mistrali on 25/09/09.
 #  Copyright Cube Gestioni S.r.l. 2009. All rights reserved.
 #
+# $Id$
 
 #import modules required by application
 import objc
