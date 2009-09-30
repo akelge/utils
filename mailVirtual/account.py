@@ -30,7 +30,7 @@ class Accounts:
             self.binary=True
             self.pl=plistlib.readPlist(self.filename)
 
-        accountList=[a for a in self.pl['MailAccounts'] if a['AccountType'] in ['IMAPAccount', 'POPAccount']]
+        accountList=[a for a in self.pl['MailAccounts'] if (a['AccountType'] in ['IMAPAccount', 'POPAccount'])]
         for account in accountList:
             self.accountList.append(Account(account, self))
 

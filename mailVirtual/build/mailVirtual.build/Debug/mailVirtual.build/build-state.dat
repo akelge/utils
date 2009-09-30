@@ -1,487 +1,0 @@
-TmailVirtual
-v7
-r0
-t275928749.160536
-cCheck dependencies
-cProcessInfoPlistFile /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Info.plist Info.plist
-cCopyStringsFile /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-cCpResource build/Debug/mailVirtual.app/Contents/Resources/main.py main.py
-cCpResource build/Debug/mailVirtual.app/Contents/Resources/mailVirtualAppDelegate.py mailVirtualAppDelegate.py
-cCompileXIB /Users/andre/Desktop/mailVirtual/English.lproj/MainMenu.xib
-cCpResource build/Debug/mailVirtual.app/Contents/Resources/account.py account.py
-cCpResource build/Debug/mailVirtual.app/Contents/Resources/Matrixmail.icns Matrixmail.icns
-cProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fmrcxcfcamsessgyrnumgftzcybv/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-hlcgccokensektdcqxeturxzrjnm/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal ppc objective-c com.apple.compilers.gcc.4_2
-cCompileC build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/main.o /Users/andre/Desktop/mailVirtual/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual normal i386
-cCompileC build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/main.o /Users/andre/Desktop/mailVirtual/main.m normal ppc objective-c com.apple.compilers.gcc.4_2
-cLd /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual normal ppc
-cCreateUniversalBinary /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/MacOS/mailVirtual normal "i386 ppc"
-cTouch /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app
-
-N/Developer/SDKs/MacOSX10.5.sdk
-c000000004A49A9E400000000000000EE
-t1246341604
-s238
-
-N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c0000000040C4AA6800000000000001E5
-t1086630504
-s485
-
-N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Python.framework/Headers/Python.h
-c000000004864C5EF000000000000106C
-t1214563823
-s4204
-
-N/Developer/SDKs/MacOSX10.6.sdk
-c000000004A769DAB00000000000000EE
-t1249287595
-s238
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c0000000040C4AA6800000000000001E5
-t1086630504
-s485
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Python.framework/Headers/Python.h
-c000000004A5443200000000000001120
-t1247036192
-s4384
-
-N/System/Library/Frameworks/Cocoa.framework/Cocoa
-c000000004A1F2D63000000000000A5E0
-t1243557219
-s42464
-
-N/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004AA7C90C0000000000B37450
-t1252509964
-s11760720
-
-N/System/Library/Frameworks/Python.framework/Python
-c000000004A54433B00000000003E7770
-t1247036219
-s4093808
-
-N/Users/andre/Desktop/mailVirtual/English.lproj/InfoPlist.strings
-c000000004AC1FBCF00000000000000D0
-t1254226895
-s208
-
-N/Users/andre/Desktop/mailVirtual/English.lproj/MainMenu.xib
-c000000004AC21F2A000000000001BA4A
-t1254235946
-s113226
-
-N/Users/andre/Desktop/mailVirtual/Info.plist
-c000000004ABCDD330000000000000394
-t1253891379
-s916
-
-N/Users/andre/Desktop/mailVirtual/Matrixmail.icns
-c00000000407ABD45000000000000BF2F
-t1081785669
-s48943
-
-N/Users/andre/Desktop/mailVirtual/account.py
-c000000004AC1FBCF000000000000095B
-t1254226895
-s2395
-
-N/Users/andre/Desktop/mailVirtual/aliases.py
-c000000004ABCE52200000000000005BE
-t1253893410
-s1470
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app
-t1254235949
-s136
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Info.plist
-t1254235880
-s905
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/MacOS/mailVirtual
-t1254235887
-s42076
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/PkgInfo
-t1254235880
-s8
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/English.lproj/InfoPlist.strings
-t1254235880
-s208
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/English.lproj/MainMenu.nib
-t1254235949
-s21414
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/Info.plist
-t2
-s0
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/Matrixmail.icns
-t1254235887
-s48943
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/account.py
-t1254235880
-s2395
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/aliases.py
-t2
-s0
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/mailVirtualAppDelegate.py
-t1254235919
-s4085
-
-N/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/main.py
-t1254235880
-s442
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual
-t1254235887
-s18020
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual.LinkFileList
-c000000004AC21EE8000000000000006C
-t1254235880
-s108
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/main.o
-t1254235887
-s10768
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual
-t1254235887
-s17500
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual.LinkFileList
-c000000004AC21EE8000000000000006B
-t1254235880
-s107
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/main.o
-t1254235887
-s11560
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/mailVirtual
-t2
-s0
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/mailVirtual.LinkFileList
-c000000004AC1FEF6000000000000006E
-t1254227702
-s110
-
-N/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/main.o
-t1254227751
-s12228
-
-N/Users/andre/Desktop/mailVirtual/mailVirtualAppDelegate.py
-c000000004AC21F0B0000000000000FF5
-t1254235915
-s4085
-
-N/Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch
-c000000004AC1FBCF0000000000000099
-t1254226895
-s153
-i<Cocoa/Cocoa.h>
-
-N/Users/andre/Desktop/mailVirtual/main.m
-c000000004AC1FBCF0000000000000720
-t1254226895
-s1824
-i<Python/Python.h>
-i<Cocoa/Cocoa.h>
-
-N/Users/andre/Desktop/mailVirtual/main.py
-c000000004AC1FBCF00000000000001BA
-t1254226895
-s442
-
-N/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afjeszutwkkjzaedfpsenlvdwajp/mailVirtual_Prefix.pch.gch
-t1254227750
-s53044784
-
-N/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afmlkaeklfptbbdckphghcislpsb/mailVirtual_Prefix.pch.gch
-t1254227705
-s51114256
-
-N/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-bltvnfldtuiafnculctawoygkbzl/mailVirtual_Prefix.pch.gch
-t1254227746
-s56715024
-
-N/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fmrcxcfcamsessgyrnumgftzcybv/mailVirtual_Prefix.pch.gch
-t1254232035
-s54006160
-
-N/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fqmtuvaomjvgtpdfrtztdzmrxzil/mailVirtual_Prefix.pch.gch
-t1254227746
-s54134512
-
-N/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-hlcgccokensektdcqxeturxzrjnm/mailVirtual_Prefix.pch.gch
-t1254232035
-s50315472
-
-NInfo.plist
-c000000004AC2074C00000000000003A3
-t1254229836
-s931
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies275928748#275928748#0(0"0(0#1#0"4300882208#0"0#
-
-CCompileC build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/main.o /Users/andre/Desktop/mailVirtual/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s275928687.309809
-e275928687.632402
-r1
-xCompileC
-xbuild/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/main.o
-x/Users/andre/Desktop/mailVirtual/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@47"Compile /Users/andre/Desktop/mailVirtual/main.m275928687#275928687#0(0"0(0#0#39"/Users/andre/Desktop/mailVirtual/main.m4300882208#1065"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mfix-and-continue -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/i386 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -include /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fmrcxcfcamsessgyrnumgftzcybv/mailVirtual_Prefix.pch -c /Users/andre/Desktop/mailVirtual/main.m -o /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/main.o0#
-
-CCompileC build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/main.o /Users/andre/Desktop/mailVirtual/main.m normal ppc objective-c com.apple.compilers.gcc.4_2
-s275928687.310890
-e275928687.641937
-r1
-xCompileC
-xbuild/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/main.o
-x/Users/andre/Desktop/mailVirtual/main.m
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@47"Compile /Users/andre/Desktop/mailVirtual/main.m275928687#275928687#0(0"0(0#0#39"/Users/andre/Desktop/mailVirtual/main.m4300882208#1059"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mfix-and-continue -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/ppc -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -include /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-hlcgccokensektdcqxeturxzrjnm/mailVirtual_Prefix.pch -c /Users/andre/Desktop/mailVirtual/main.m -o /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/main.o0#
-
-CCompileC build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/main.o /Users/andre/Desktop/mailVirtual/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s275920550.557877
-e275920551.719490
-r1
-xCompileC
-xbuild/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/main.o
-x/Users/andre/Desktop/mailVirtual/main.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@47"Compile /Users/andre/Desktop/mailVirtual/main.m275920550#275920551#0(0"0(0#0#39"/Users/andre/Desktop/mailVirtual/main.m4300882208#1071"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/x86_64 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -include /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fqmtuvaomjvgtpdfrtztdzmrxzil/mailVirtual_Prefix.pch -c /Users/andre/Desktop/mailVirtual/main.m -o /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/main.o0#
-
-CCompileXIB /Users/andre/Desktop/mailVirtual/English.lproj/MainMenu.xib
-s275928748.740623
-e275928749.157144
-r1
-xCompileXIB
-x/Users/andre/Desktop/mailVirtual/English.lproj/MainMenu.xib
-lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib275928748#275928749#0(0"0(0#0#59"/Users/andre/Desktop/mailVirtual/English.lproj/MainMenu.xib4300882208#313"    cd /Users/andre/Desktop/mailVirtual    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/English.lproj/MainMenu.nib /Users/andre/Desktop/mailVirtual/English.lproj/MainMenu.xib0#
-
-CCopyPlistFile /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/Info.plist Info.plist
-r0
-
-CCopyStringsFile /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-s275924831.353903
-e275924831.405194
-r1
-xCopyStringsFile
-x/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/English.lproj/InfoPlist.strings
-xEnglish.lproj/InfoPlist.strings
-lSLF07#2@36"Copy English.lproj/InfoPlist.strings275924831#275924831#0(0"0(0#0#64"/Users/andre/Desktop/mailVirtual/English.lproj/InfoPlist.strings4300882208#358"    cd /Users/andre/Desktop/mailVirtual    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources/English.lproj0#
-
-CCpResource build/Debug/mailVirtual.app/Contents/Resources/Matrixmail.icns Matrixmail.icns
-s275928687.301020
-e275928687.309486
-r1
-xCpResource
-xbuild/Debug/mailVirtual.app/Contents/Resources/Matrixmail.icns
-xMatrixmail.icns
-lSLF07#2@20"Copy Matrixmail.icns275928687#275928687#0(0"0(0#0#48"/Users/andre/Desktop/mailVirtual/Matrixmail.icns27303270316507232#317"    cd /Users/andre/Desktop/mailVirtual    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/andre/Desktop/mailVirtual/Matrixmail.icns /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources0#
-
-CCpResource build/Debug/mailVirtual.app/Contents/Resources/account.py account.py
-s275924831.405396
-e275924831.411527
-r1
-xCpResource
-xbuild/Debug/mailVirtual.app/Contents/Resources/account.py
-xaccount.py
-lSLF07#2@15"Copy account.py275924831#275924831#0(0"0(0#0#43"/Users/andre/Desktop/mailVirtual/account.py4300882208#312"    cd /Users/andre/Desktop/mailVirtual    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/andre/Desktop/mailVirtual/account.py /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources0#
-
-CCpResource build/Debug/mailVirtual.app/Contents/Resources/aliases.py aliases.py
-r0
-
-CCpResource build/Debug/mailVirtual.app/Contents/Resources/mailVirtualAppDelegate.py mailVirtualAppDelegate.py
-s275928719.201834
-e275928719.208213
-r1
-xCpResource
-xbuild/Debug/mailVirtual.app/Contents/Resources/mailVirtualAppDelegate.py
-xmailVirtualAppDelegate.py
-lSLF07#2@30"Copy mailVirtualAppDelegate.py275928719#275928719#0(0"0(0#0#58"/Users/andre/Desktop/mailVirtual/mailVirtualAppDelegate.py4300882208#327"    cd /Users/andre/Desktop/mailVirtual    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/andre/Desktop/mailVirtual/mailVirtualAppDelegate.py /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources0#
-
-CCpResource build/Debug/mailVirtual.app/Contents/Resources/main.py main.py
-s275924831.355805
-e275924831.368772
-r1
-xCpResource
-xbuild/Debug/mailVirtual.app/Contents/Resources/main.py
-xmain.py
-lSLF07#2@12"Copy main.py275924831#275924831#0(0"0(0#0#40"/Users/andre/Desktop/mailVirtual/main.py4300882208#309"    cd /Users/andre/Desktop/mailVirtual    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/andre/Desktop/mailVirtual/main.py /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Resources0#
-
-CCreateUniversalBinary /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/MacOS/mailVirtual normal "i386 ppc"
-s275928687.995631
-e275928687.999317
-r1
-xCreateUniversalBinary
-x/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/MacOS/mailVirtual
-xnormal
-xi386 ppc
-lSLF07#2@94"CreateUniversalBinary build/Debug/mailVirtual.app/Contents/MacOS/mailVirtual normal "i386 ppc"275928687#275928687#0(0"0(0#0#41"/Users/andre/Desktop/mailVirtual/i386 ppc4300882208#387"    cd /Users/andre/Desktop/mailVirtual    /usr/bin/lipo -create /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual -output /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/MacOS/mailVirtual0#
-
-CCreateUniversalBinary /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/MacOS/mailVirtual normal "x86_64 i386 ppc"
-r0
-
-CLd /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual normal i386
-s275928687.632496
-e275928687.995562
-r1
-xLd
-x/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual
-xnormal
-xi386
-lSLF07#2@117"Link /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual275928687#275928687#0(0"0(0#0#0"4300882208#593"    cd /Users/andre/Desktop/mailVirtual    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk -L/Users/andre/Desktop/mailVirtual/build/Debug -F/Users/andre/Desktop/mailVirtual/build/Debug -filelist /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual.LinkFileList -mmacosx-version-min=10.5 -framework Cocoa -framework Python -framework Foundation -o /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/i386/mailVirtual0#
-
-CLd /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual normal ppc
-s275928687.642030
-e275928687.995256
-r1
-xLd
-x/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual
-xnormal
-xppc
-lSLF07#2@116"Link /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual275928687#275928687#0(0"0(0#0#0"4300882208#590"    cd /Users/andre/Desktop/mailVirtual    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Developer/usr/bin/gcc-4.2 -arch ppc -isysroot /Developer/SDKs/MacOSX10.5.sdk -L/Users/andre/Desktop/mailVirtual/build/Debug -F/Users/andre/Desktop/mailVirtual/build/Debug -filelist /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual.LinkFileList -mmacosx-version-min=10.5 -framework Cocoa -framework Python -framework Foundation -o /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/ppc/mailVirtual0#
-
-CLd /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/mailVirtual normal x86_64
-s275920551.719556
-e275920552.254019
-r0
-xLd
-x/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/mailVirtual
-xnormal
-xx86_64
-old: warning: in /Developer/SDKs/MacOSX10.6.sdk/Library/Frameworks//Python.framework/Python, missing required architecture x86_64 in file
-oUndefined symbols:
-o  "_Py_Initialize", referenced from:
-o      _main in main.o
-o  "_PySys_SetArgv", referenced from:
-o      _main in main.o
-o  "_PyRun_SimpleFileExFlags", referenced from:
-o      _main in main.o
-o  "_Py_SetProgramName", referenced from:
-o      _main in main.o
-old: symbol(s) not found
-ocollect2: ld returned 1 exit status
-lSLF07#2@119"Link /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/mailVirtual275920551#275920552#0(466"ld: warning: in /Developer/SDKs/MacOSX10.6.sdk/Library/Frameworks//Python.framework/Python, missing required architecture x86_64 in fileUndefined symbols:  "_Py_Initialize", referenced from:      _main in main.o  "_PySys_SetArgv", referenced from:      _main in main.o  "_PyRun_SimpleFileExFlags", referenced from:      _main in main.o  "_Py_SetProgramName", referenced from:      _main in main.old: symbol(s) not foundcollect2: ld returned 1 exit status11(22@123"In /Developer/SDKs/MacOSX10.6.sdk/Library/Frameworks//Python.framework/Python, missing required architecture x86_64 in file275920552#0#137#0(6@0"275920552#0#0#0#0#0"0(4@34""_Py_Initialize", referenced from:275920552#156#37#0(6@0"275920552#0#0#0#0#0"0(13@15"_main in main.o275920552#193#22#0(6@0"275920552#0#0#0#0#0"0(4@34""_PySys_SetArgv", referenced from:275920552#215#37#0(6@0"275920552#0#0#0#0#0"0(13@15"_main in main.o275920552#252#22#0(6@0"275920552#0#0#0#0#0"0(4@44""_PyRun_SimpleFileExFlags", referenced from:275920552#274#47#0(6@0"275920552#0#0#0#0#0"0(13@15"_main in main.o275920552#321#22#0(6@0"275920552#0#0#0#0#0"0(4@38""_Py_SetProgramName", referenced from:275920552#343#41#0(6@0"275920552#0#0#0#0#0"0(13@15"_main in main.o275920552#384#22#0(6@0"275920552#0#0#0#0#0"0(13@19"Symbol(s) not found275920552#406#24#0(6@0"275920552#0#0#0#0#0"0(13@35"Collect2: ld returned 1 exit status275920552#430#36#0(6@0"275920552#0#0#0#0#0"0(0#0#0"4300882208#599"    cd /Users/andre/Desktop/mailVirtual    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/andre/Desktop/mailVirtual/build/Debug -F/Users/andre/Desktop/mailVirtual/build/Debug -filelist /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/mailVirtual.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework Python -framework Foundation -o /Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/Objects-normal/x86_64/mailVirtual1#
-
-CProcessInfoPlistFile /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Info.plist Info.plist
-s275924831.347137
-e275924831.353792
-r1
-xProcessInfoPlistFile
-x/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Info.plist
-xInfo.plist
-lSLF07#2@18"Process Info.plist275924831#275924831#0(0"0(0#0#43"/Users/andre/Desktop/mailVirtual/Info.plist4300882208#292"    cd /Users/andre/Desktop/mailVirtual    builtin-infoPlistUtility Info.plist -genpkginfo /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app/Contents/Info.plist0#
-
-CProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afjeszutwkkjzaedfpsenlvdwajp/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal ppc objective-c com.apple.compilers.gcc.4_2
-s275920546.809478
-e275920550.557670
-r1
-xProcessPCH
-x/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afjeszutwkkjzaedfpsenlvdwajp/mailVirtual_Prefix.pch.gch
-xmailVirtual_Prefix.pch
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile mailVirtual_Prefix.pch275920546#275920550#0(0"0(0#0#55"/Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch4300882208#970"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/ppc -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -c /Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch -o /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afjeszutwkkjzaedfpsenlvdwajp/mailVirtual_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afmlkaeklfptbbdckphghcislpsb/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s275920502.251170
-e275920505.689549
-r1
-xProcessPCH
-x/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afmlkaeklfptbbdckphghcislpsb/mailVirtual_Prefix.pch.gch
-xmailVirtual_Prefix.pch
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile mailVirtual_Prefix.pch275920502#275920505#0(0"0(0#0#55"/Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch4300882208#979"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mfix-and-continue -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/x86_64 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -c /Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch -o /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-afmlkaeklfptbbdckphghcislpsb/mailVirtual_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-bltvnfldtuiafnculctawoygkbzl/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s275920539.778946
-e275920547.616172
-r1
-xProcessPCH
-x/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-bltvnfldtuiafnculctawoygkbzl/mailVirtual_Prefix.pch.gch
-xmailVirtual_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile mailVirtual_Prefix.pch275920539#275920547#0(0"0(0#0#55"/Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch4300882208#975"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/i386 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -c /Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch -o /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-bltvnfldtuiafnculctawoygkbzl/mailVirtual_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fmrcxcfcamsessgyrnumgftzcybv/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s275924831.783357
-e275924835.907586
-r1
-xProcessPCH
-x/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fmrcxcfcamsessgyrnumgftzcybv/mailVirtual_Prefix.pch.gch
-xmailVirtual_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile mailVirtual_Prefix.pch275924831#275924835#0(0"0(0#0#55"/Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch4300882208#975"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mfix-and-continue -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/i386 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -c /Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch -o /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fmrcxcfcamsessgyrnumgftzcybv/mailVirtual_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fqmtuvaomjvgtpdfrtztdzmrxzil/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s275920539.777927
-e275920546.809252
-r1
-xProcessPCH
-x/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fqmtuvaomjvgtpdfrtztdzmrxzil/mailVirtual_Prefix.pch.gch
-xmailVirtual_Prefix.pch
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile mailVirtual_Prefix.pch275920539#275920546#0(0"0(0#0#55"/Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch4300882208#979"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/x86_64 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -c /Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch -o /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-fqmtuvaomjvgtpdfrtztdzmrxzil/mailVirtual_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-hlcgccokensektdcqxeturxzrjnm/mailVirtual_Prefix.pch.gch mailVirtual_Prefix.pch normal ppc objective-c com.apple.compilers.gcc.4_2
-s275924831.784343
-e275924835.475065
-r1
-xProcessPCH
-x/var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-hlcgccokensektdcqxeturxzrjnm/mailVirtual_Prefix.pch.gch
-xmailVirtual_Prefix.pch
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile mailVirtual_Prefix.pch275924831#275924835#0(0"0(0#0#55"/Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch4300882208#970"    cd /Users/andre/Desktop/mailVirtual    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mfix-and-continue -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/mailVirtual.hmap -F/Users/andre/Desktop/mailVirtual/build/Debug -I/Users/andre/Desktop/mailVirtual/build/Debug/include -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources/ppc -I/Users/andre/Desktop/mailVirtual/build/mailVirtual.build/Debug/mailVirtual.build/DerivedSources -c /Users/andre/Desktop/mailVirtual/mailVirtual_Prefix.pch -o /var/folders/O7/O7nDi-gNE1e5RnuW0UQZNE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/mailVirtual_Prefix-hlcgccokensektdcqxeturxzrjnm/mailVirtual_Prefix.pch.gch0#
-
-CTouch /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app
-s275928749.157728
-e275928749.160500
-r1
-xTouch
-x/Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app
-lSLF07#2@66"Touch /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app275928749#275928749#0(0"0(0#0#0"4300882208#123"    cd /Users/andre/Desktop/mailVirtual    /usr/bin/touch -c /Users/andre/Desktop/mailVirtual/build/Debug/mailVirtual.app0#
-
