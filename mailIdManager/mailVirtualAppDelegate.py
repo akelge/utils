@@ -8,7 +8,7 @@
 # $Id$
 
 from objc import YES, NO, IBAction, IBOutlet, pyobjc_unicode
-import os
+import os, time
 from Foundation import *
 from AppKit import *
 from account import *
