@@ -21,11 +21,6 @@ class Accounts:
         # Open PL
         try:
             self.pl=plistlib.readPlist(self.filename)
-
-        except IOError:
-            print "ERROR: No such file: %s\n" % self.filename
-            sys.exit(1)
-
         except ExpatError:
             system('plutil -convert xml1 %s' % self.filename)
             self.binary=True
@@ -38,7 +33,10 @@ class Accounts:
     def save(self, filename=None):
         if not filename:
             filename=self.filename
+
+        # save in XML
         plistlib.writePlist(self.pl, filename)
+        # Convert to binary if necessary
         if self.binary:
             system('plutil -convert binary1 %s' % filename)
         self.modified=False
@@ -58,25 +56,30 @@ class Account:
     def __repr__(self):
         return r"<Account '%s'>" % (self.name)
 
-    def addAlias(self, name, alias):
-        self.aliases.append({'name': name, 'alias': alias})
+    def addAlias(self, name, alias, index=None):
+        newAlias={'name': name, 'alias': alias}
+        if index != None:
+            self.aliases.insert(index, newAlias)
+        else:
+            self.aliases.append(newAlias)
         self.parent.modified=True
 
     def delAlias(self, index):
-        self.aliases.pop(index)
-        self.parent.modified=True
+        if index in range(0,len(self.aliases)):
+            self.aliases.pop(index)
+            self.parent.modified=True
 
     def modAlias(self, index, name, alias):
-        self.delAlias(index)
-        self.addAlias(name, alias)
-        self.parent.modified=True
-        self.parent.modified=True
+        if index in range(0,len(self.aliases)):
+            self.delAlias(index)
+            self.addAlias(name, alias, index)
+            self.parent.modified=True
 
-    def listDict(self):
-        return self.aliases
-
-    def listArray(self):
-        listArray=[]
-        for item in self.aliases:
-            listArray.append((item['name'], item['alias']))
-        return listArray
+    def moveAliasUpDown(self, index, step):
+        """
+        Move an alias of step positions in list, watching for overflow
+        """
+        if (index-step) in range(0,len(self.aliases)):
+            item=self.aliases.pop(index)
+            self.aliases.insert((index-step), item)
+            self.parent.modified=True
