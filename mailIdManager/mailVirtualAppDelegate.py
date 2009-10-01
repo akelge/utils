@@ -23,7 +23,6 @@ class mailVirtualAppDelegate(NSObject):
     prefFileLabel = IBOutlet('prefFileLabel')
     modifiedIcon = IBOutlet('modifiedIcon')
     aliasList = []
-    data=[]
 
     def awakeFromNib(self):
         # Clean up Pop Up
@@ -46,11 +45,6 @@ class mailVirtualAppDelegate(NSObject):
             NSLog('No preferences found! Did you ever configured Mail.app?')
             self.notFound.setStringValue_('No accounts. Did you configured Mail.app?')
             self.prefFileLabel.setStringValue_('%s (!)' % prefFile)
-
-        for line in os.environ['PYTHONPATH'].split(':'):
-            print line
-        print objc.__version__
-        print objc.__path__
 
     def redrawArray(self):
         self.aliasList = [ NSMutableDictionary.dictionaryWithDictionary_(x) for x in self.selectedAccount.aliases ]
