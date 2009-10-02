@@ -7,7 +7,7 @@
 #
 # $Id$
 
-import plistlib
+from Foundation import *
 from os import system
 import sys
 from xml.parsers.expat import ExpatError
@@ -20,32 +20,24 @@ class Accounts(object):
 
     def __new__(cls, filename):
         try:
-            cls.pl=plistlib.readPlist(filename)
+            cls.pl=NSMutableDictionary.dictionaryWithContentsOfFile_('/Users/andre/Desktop/com.apple.mail.plist')
         except IOError:
             return None
-        except ExpatError:
-            system('plutil -convert xml1 %s' % filename)
-            cls.binary=True
-            cls.pl=plistlib.readPlist(filename)
         cls.filename=filename
         return object.__new__(cls)
 
     def __init__(self, filename="com.apple.mail.plist"):
         self.accountList=[]
-        accountList=[a for a in self.pl['MailAccounts'] if (a['AccountType'] in ['IMAPAccount', 'POPAccount'])]
-        for account in accountList:
-            self.accountList.append(Account(account, self))
+        if self.pl:
+            accountList=[a for a in self.pl['MailAccounts'] if (a['AccountType'] in ['IMAPAccount', 'POPAccount'])]
+            for account in accountList:
+                self.accountList.append(Account(account, self))
 
     def save(self, filename=None):
         if not filename:
             filename=self.filename
-
-        # save in XML
-        plistlib.writePlist(self.pl, filename)
-        # Convert to binary if necessary
-        if self.binary:
-            system('plutil -convert binary1 %s' % filename)
-        self.modified=False
+        if self.pl:
+            self.pl.writeToFile_atomically_(filename, False)
 
 class Account(object):
     def __init__(self, accountDict, parent):
