@@ -28,20 +28,18 @@ class mailVirtualAppDelegate(NSObject):
         # Clean up Pop Up
         self.accountList.removeAllItems()
 
-        # Open Pref file. What if it does not exist?
-        prefFile='%s/Library/Preferences/com.apple.mail.plist' % NSHomeDirectory()
+        # Open Pref file.
+        # NSSearchPathForDirectoriesInDomains magic: for a complete mapping http://tinyurl.com/y9ugzou
+        prefFile='%s/Preferences/com.apple.mail.plist' % NSSearchPathForDirectoriesInDomains(5,1,True)[0]
         self.prefFileLabel.setStringValue_(prefFile)
-        try:
-            self.accounts=Accounts(filename=prefFile)
-        except IOError:
-            self.accounts=None
 
-        if self.accounts:
+        self.accounts=Accounts(filename=prefFile)
+        if self.accounts: # We have found the prefFile
             # Populate Pull Down
             for account in self.accounts.accountList:
                 self.accountList.addItemWithTitle_(account.name)
             self.selectAccount(0)
-        else:
+        else: # Pref file does not exist
             NSLog('No preferences found! Did you ever configured Mail.app?')
             self.notFound.setStringValue_('No accounts. Did you configured Mail.app?')
             self.prefFileLabel.setStringValue_('%s (!)' % prefFile)

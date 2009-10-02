@@ -12,20 +12,26 @@ from os import system
 import sys
 from xml.parsers.expat import ExpatError
 
-class Accounts:
-    def __init__(self, filename="com.apple.mail.plist"):
-        self.filename=filename
-        self.modified=False
-        self.binary=False
-        self.accountList=[]
-        # Open PL
-        try:
-            self.pl=plistlib.readPlist(self.filename)
-        except ExpatError:
-            system('plutil -convert xml1 %s' % self.filename)
-            self.binary=True
-            self.pl=plistlib.readPlist(self.filename)
+class Accounts(object):
+    pl=None
+    binary=False
+    modified=False
+    filename=''
 
+    def __new__(cls, filename):
+        try:
+            cls.pl=plistlib.readPlist(filename)
+        except IOError:
+            return None
+        except ExpatError:
+            system('plutil -convert xml1 %s' % filename)
+            cls.binary=True
+            cls.pl=plistlib.readPlist(filename)
+        cls.filename=filename
+        return object.__new__(cls)
+
+    def __init__(self, filename="com.apple.mail.plist"):
+        self.accountList=[]
         accountList=[a for a in self.pl['MailAccounts'] if (a['AccountType'] in ['IMAPAccount', 'POPAccount'])]
         for account in accountList:
             self.accountList.append(Account(account, self))
@@ -41,7 +47,7 @@ class Accounts:
             system('plutil -convert binary1 %s' % filename)
         self.modified=False
 
-class Account:
+class Account(object):
     def __init__(self, accountDict, parent):
         self.account=accountDict
         self.name=self.account['AccountName']
