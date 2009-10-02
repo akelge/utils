@@ -11,6 +11,7 @@
 		657590B71073523400642D26 /* MoveDown.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 657590B51073523400642D26 /* MoveDown.tiff */; };
 		657590B81073523400642D26 /* MoveUp.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 657590B61073523400642D26 /* MoveUp.tiff */; };
 		65950DE0106D263C0015C589 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		65A1974F10762ADB009A014D /* arrayController.py in Resources */ = {isa = PBXBuildFile; fileRef = 65A1974E10762ADB009A014D /* arrayController.py */; };
 		65C0086F1070BF7700B87932 /* account.py in Resources */ = {isa = PBXBuildFile; fileRef = 65C0086E1070BF7700B87932 /* account.py */; };
 		77631A270C06C501005415CB /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77631A260C06C501005415CB /* Python.framework */; };
 		77631A3F0C0748CF005415CB /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 77631A3E0C0748CF005415CB /* main.py */; };
@@ -32,6 +33,7 @@
 		6552622210723583000C1FE6 /* Matrixmail.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Matrixmail.icns; sourceTree = "<group>"; };
 		657590B51073523400642D26 /* MoveDown.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MoveDown.tiff; sourceTree = "<group>"; };
 		657590B61073523400642D26 /* MoveUp.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = MoveUp.tiff; sourceTree = "<group>"; };
+		65A1974E10762ADB009A014D /* arrayController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = arrayController.py; sourceTree = "<group>"; };
 		65C0086E1070BF7700B87932 /* account.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = account.py; sourceTree = "<group>"; };
 		77631A260C06C501005415CB /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		77631A3E0C0748CF005415CB /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				65A1974E10762ADB009A014D /* arrayController.py */,
 				7790198E0C07548A00326F66 /* mailVirtualAppDelegate.py */,
 				65C0086E1070BF7700B87932 /* account.py */,
 			);
@@ -190,6 +193,7 @@
 				6552622310723583000C1FE6 /* Matrixmail.icns in Resources */,
 				657590B71073523400642D26 /* MoveDown.tiff in Resources */,
 				657590B81073523400642D26 /* MoveUp.tiff in Resources */,
+				65A1974F10762ADB009A014D /* arrayController.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
