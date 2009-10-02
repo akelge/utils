@@ -29,7 +29,7 @@ class mailVirtualAppDelegate(NSObject):
         self.accountList.removeAllItems()
 
         # Open Pref file. What if it does not exist?
-        prefFile='%s/Library/Preferences/com.apple.mail.plist' % NSHomeDirectory()
+        prefFile='%s/Desktop/com.apple.mail.plist' % NSHomeDirectory()
         self.prefFileLabel.setStringValue_(prefFile)
         try:
             self.accounts=Accounts(filename=prefFile)
@@ -47,7 +47,7 @@ class mailVirtualAppDelegate(NSObject):
             self.prefFileLabel.setStringValue_('%s (!)' % prefFile)
 
     def redrawArray(self):
-        self.aliasList = [ NSMutableDictionary.dictionaryWithDictionary_(x) for x in self.selectedAccount.aliases ]
+        self.aliasList = self.selectedAccount.aliases
         self.arrayController.setContent_(self.aliasList)
 
     def selectAccount(self, idx):
