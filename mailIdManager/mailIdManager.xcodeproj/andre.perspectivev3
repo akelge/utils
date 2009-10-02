@@ -306,8 +306,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>2</integer>
-									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -331,7 +329,7 @@
 							<real>163</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>36 211 1468 815 0 0 1680 1028 </string>
+						<string>38 211 1468 815 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -347,7 +345,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>65873503107229B60017BFCD</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>arrayController.py</string>
+								<string>mailVirtualAppDelegate.py</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -355,18 +353,19 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>65873504107229B60017BFCD</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>arrayController.py</string>
+										<string>mailVirtualAppDelegate.py</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>65A197E110763884009A014D</string>
+										<string>65A1986010763DAC009A014D</string>
 										<key>history</key>
 										<array>
 											<string>65A197C710763820009A014D</string>
-											<string>65A197CE1076383E009A014D</string>
 											<string>65A197DD10763884009A014D</string>
-											<string>65A197DF10763884009A014D</string>
-											<string>65A197E010763884009A014D</string>
+											<string>65A197EA107638AC009A014D</string>
+											<string>65A197F4107638B5009A014D</string>
+											<string>65A1985210763D77009A014D</string>
+											<string>65A1985F10763DAA009A014D</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -382,7 +381,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1261, 473}}</string>
 								<key>RubberWindowFrame</key>
-								<string>36 211 1468 815 0 0 1680 1028 </string>
+								<string>38 211 1468 815 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -405,7 +404,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1261, 634}}</string>
+										<string>{{10, 27}, {1261, 269}}</string>
+										<key>RubberWindowFrame</key>
+										<string>38 211 1468 815 0 0 1680 1028 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -435,7 +436,7 @@
 										<dict>
 											<key>PBXCVSModuleTreeModuleColumnWidthsKey</key>
 											<array>
-												<real>845</real>
+												<real>861</real>
 												<real>56</real>
 												<real>63</real>
 												<real>60</real>
@@ -461,8 +462,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {1261, 269}}</string>
-										<key>RubberWindowFrame</key>
-										<string>36 211 1468 815 0 0 1680 1028 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXCVSModule</string>
@@ -691,7 +690,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>276183172.150401</real>
+	<real>276184492.01586699</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -713,7 +712,7 @@
 		<string>/Users/andre/Src/pyObjC/mailIdManager/mailIdManager.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>36 211 1468 815 0 0 1680 1028 </string>
+	<string>38 211 1468 815 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

@@ -20,7 +20,7 @@ class Accounts(object):
 
     def __new__(cls, filename):
         try:
-            cls.pl=NSMutableDictionary.dictionaryWithContentsOfFile_('/Users/andre/Desktop/com.apple.mail.plist')
+            cls.pl=NSMutableDictionary.dictionaryWithContentsOfFile_(filename)
         except IOError:
             return None
         cls.filename=filename
@@ -41,9 +41,9 @@ class Accounts(object):
 
 class Account(object):
     def __init__(self, accountDict, parent):
-        self.account=accountDict
-        self.name=self.account['AccountName']
-        self.parent=parent
+        self.account = accountDict
+        self.name = self.account['AccountName']
+        self.parent = parent
         self.mainAddress = "%s <%s>" % (self.account['FullUserName'], self.account['EmailAddresses'][0])
 
         # Setup Aliases

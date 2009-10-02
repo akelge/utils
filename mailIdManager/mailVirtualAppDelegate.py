@@ -13,11 +13,12 @@ import os
 from Foundation import *
 from AppKit import *
 from account import *
+from arrayController import *
 
 class mailVirtualAppDelegate(NSObject):
     accountList = IBOutlet('accountList')
     mainAddress = IBOutlet('mainAddress')
-    arrayController = IBOutlet('arrayController')
+    # arrayController = IBOutlet('arrayController')
     aliasTable = IBOutlet('aliasTable')
     notFound = IBOutlet('notFound')
     prefFileLabel = IBOutlet('prefFileLabel')
@@ -45,8 +46,9 @@ class mailVirtualAppDelegate(NSObject):
             self.prefFileLabel.setStringValue_('%s (!)' % prefFile)
 
     def redrawArray(self):
-        self.aliasList = self.selectedAccount.aliases
-        self.arrayController.setContent_(self.aliasList)
+        self.aC=arrayController.alloc().init()
+        self.aC.setIdentities(self.selectedAccount.aliases)
+        self.aliasTable.setDataSource_(self.aC)
 
     def selectAccount(self, idx):
         self.selectedAccount=self.accounts.accountList[idx]
@@ -66,7 +68,7 @@ class mailVirtualAppDelegate(NSObject):
 
     @IBAction
     def delAlias_(self, sender):
-        idx=self.arrayController.selectionIndex()
+        idx=self.aliasTable.selectedRow()
         self.selectedAccount.delAlias(idx)
         self.redrawArray()
 
@@ -79,9 +81,11 @@ class mailVirtualAppDelegate(NSObject):
         self.moveUpDown(step=-1)
 
     def moveUpDown(self, step):
-        idx=self.arrayController.selectionIndex()
+        idx=self.aliasTable.selectedRow()
         self.selectedAccount.moveAliasUpDown(idx, step)
         self.redrawArray()
+        self.aliasTable.selectRowIndexes_byExtendingSelection_(NSIndexSet.indexSetWithIndex_(idx-step), NO)
+        
 
     @IBAction
     def save_(self, sender):
