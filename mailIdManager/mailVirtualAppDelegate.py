@@ -29,7 +29,7 @@ class mailVirtualAppDelegate(NSObject):
         self.accountList.removeAllItems()
 
         # Open Pref file. What if it does not exist?
-        prefFile='%s/Desktop/com.apple.mail.plist' % NSHomeDirectory()
+        prefFile='%s/Library/Preferences/com.apple.mail.plist' % NSHomeDirectory()
         self.prefFileLabel.setStringValue_(prefFile)
         try:
             self.accounts=Accounts(filename=prefFile)
