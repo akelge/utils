@@ -2,7 +2,7 @@
 -*- coding: latin-1 -*-
 
  Copyright by Andrea Mistrali <am@am.cx>
- Last modified: 2009-10-15T11:04 CEST (+0200)
+ Last modified: 2009-10-15T11:13 CEST (+0200)
 
  Synopsis: Wrapper to another program
 
@@ -13,18 +13,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <libgen.h>
+
+void usage(char *argv[]) {
+    printf("Usage:\n\n");
+    printf("  %s <command with fullpath> <params>\n", basename(argv[0]));
+    printf("\nExec command passing params, changing UID/GID to the owner of wrapper.\n");
+    printf("Remember to chown it to whom it may concern and make it suid.\n");
+    exit(1);
+}
 
 int main(int argc, char *argv[]) {
     extern char **environ;
-    int n;
+
+    if (argc==1) usage(argv);
+
+    /* Shift argv to get command and switches */
     argv=argv++;
-    for(n=0; n<argc-1; n++)
-        printf("%s\n", argv[n]);
-    for(n=0; n < sizeof(environ); n++)
-        printf("%s\n", environ[n]);
+    /* Set UID/GID to the owner of executable */
     setuid(geteuid());
     setgid(getegid());
+    /* Exec with environment */
     execve(argv[0], argv, environ);
     return 0;
 }
