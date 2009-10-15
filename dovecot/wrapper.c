@@ -2,7 +2,7 @@
 -*- coding: latin-1 -*-
 
  Copyright by Andrea Mistrali <am@am.cx>
- Last modified: 2009-10-15T11:13 CEST (+0200)
+ Last modified: 2009-10-15T12:01 CEST (+0200)
 
  Synopsis: Wrapper to another program
 
@@ -28,8 +28,9 @@ int main(int argc, char *argv[]) {
 
     if (argc==1) usage(argv);
 
-    /* Shift argv to get command and switches */
-    argv=argv++;
+    /* Change full path under */
+    argv[0]="/bin/ls";
+
     /* Set UID/GID to the owner of executable */
     setuid(geteuid());
     setgid(getegid());
