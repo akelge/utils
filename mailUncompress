@@ -1,0 +1,20 @@
+#!/bin/sh
+# Uncompress all compressed mail in a maildir
+
+PUBLICUIDGID="10002:8"
+DEBUG="true"
+LOG="echo"
+
+for file in `/bin/ls|grep Z`; do
+    uncompressed=`echo $file|sed -e "s/Z//"`
+    if [ $file != $uncompressed ]; then
+        ${DEBUG} "$file => $uncompressed"
+        gunzip -dc $file > $uncompressed && \
+        touch -r $file $uncompressed && \
+        rm $file && \
+        chown 10002:8 $uncompressed
+    else
+        ${LOG} "Error uncompressing $file => $uncompressed"
+    fi
+done
+

@@ -1,0 +1,20 @@
+#!/bin/sh
+# Compress all "good" mails in a maildir
+
+PUBLICUIDGID="10002:8"
+DEBUG="true"
+LOG="echo"
+
+for file in `/bin/ls|grep 'S=[0-9]'|grep -v Z`; do
+    compressed=`echo $file|sed -e "s/S\([a-zA-Y]*\)$/SZ\1/"`
+    if [ $file != $compressed ]; then
+        ${DEBUG} "$file => $compressed"
+        gzip -9 -c $file > $compressed && \
+        touch -r $file $compressed && \
+        rm $file && \
+        chown ${PUBLICUIDGID} $compressed && \
+        chmod 0660 $compressed
+    else
+        ${LOG} "Error in new file name: $file => $compressed"
+    fi
+done
