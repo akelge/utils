@@ -1,7 +1,6 @@
 #!/bin/sh
 # Uncompress all compressed mail in a maildir
 
-PUBLICUIDGID="10002:8"
 DEBUG="true"
 LOG="echo"
 
@@ -12,7 +11,8 @@ for file in `/bin/ls|grep Z`; do
         gunzip -dc $file > $uncompressed && \
         touch -r $file $uncompressed && \
         rm $file && \
-        chown 10002:8 $uncompressed
+        chown --reference=. $uncompressed
+        chmod 0660 $uncompressed
     else
         ${LOG} "Error uncompressing $file => $uncompressed"
     fi
