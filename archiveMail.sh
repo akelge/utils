@@ -34,7 +34,6 @@ else
 fi
 
 for folder in $FLIST;do
-    echo -n "Processing folder $folder: "
     imapsync \
         --host1 ${SERVER} \
         --user1 ${USER} \
@@ -56,9 +55,8 @@ for folder in $FLIST;do
         --delete \
         --useheader 'Message-ID' \
         --useheader 'Subject' >> $LOGFILE 2>&1
-    if [ $? == 0 ]; then
-        echo "SUCCESS"
-    else
+    if [ $? != 0 ]; then
+        echo -n "Processing folder $folder: "
         echo "FAILURE"
     fi
 done 
