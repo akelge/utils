@@ -51,7 +51,7 @@ class OutMsg(object):
         self.smsgw=smsgw
         if filename:
             self.filename=filename
-            (self.phNumber, date, uniqText) = os.path.basename(filename).split('_')
+            (self.phNumber, date, uniqText) = os.path.basename(filename).split(':')
             (uniqText, ext) = uniqText.split('.')
 
             self.text=open(filename, 'r+').read()
@@ -158,7 +158,7 @@ class InMsg(object):
         save message in a file
         """
         if self.good:
-            filename='%s/%s_%s_%s.txt' % (self.smsgw.c.get('smsd', 'savedDir'),
+            filename='%s/%s:%s:%s.txt' % (self.smsgw.c.get('smsd', 'savedDir'),
                     self.phNumber,
                     self.date.strftime('%Y%m%d%H%M%S'),
                     hashlib.md5(self.text).hexdigest())

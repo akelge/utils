@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#-*- coding: latin-1 -*-
 """
 Parser to transform email messages into Outgoing SMS, compatible with portechsmsd
 create an alias
@@ -24,7 +25,7 @@ def split160(txt):
         yield txt[i:i+160]
 
 def cleanSubject(subject):
-    m=re.search('([+0-9]+)', subject)
+    m=re.search('(\+?\d{10,})', subject) # At least 10 character
     if m:
         return m.group()
     else:
@@ -50,13 +51,13 @@ date = datetime.now().strftime('%Y%m%d%H%M')
 outDir = conf.get('smsd', 'outgoingDir')
 
 origSubject = msg.get('Subject')
-subject = cleanSubject(msg.get('Subject'))
+phNumber = cleanSubject(msg.get('Subject'))
 
 errFrom = conf.get('email', 'from')
 errTo = msg.get('From')
 server = conf.get('email', 'server')
 
-if not subject:
+if not phNumber:
     errMsg = 'From: %s\n' % errFrom
     errMsg += 'To: %s\n' % errTo
     errMsg += 'Subject: Re: %s\n\n' % origSubject
@@ -71,8 +72,8 @@ SMS Daemon <sms@cubeholding.com>
     sys.exit(0)
 
 for pl in payload:
-    fileprefix="%s_%s_" % (subject, date)
+    fileprefix="%s:%s:" % (phNumber, date)
     filename=tempfile.mktemp(suffix='.txt', prefix=fileprefix, dir=outDir)
     fp=open(filename, 'w+')
-    os.write(fp, pl)
-    os.close(fp)
+    fp.write(pl)
+    fp.close()
