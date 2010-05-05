@@ -72,6 +72,8 @@ SMS Daemon <sms@cubeholding.com>
 
 for pl in payload:
     fileprefix="%s_%s_" % (subject, date)
-    (file, name)=tempfile.mkstemp(suffix='.txt', prefix=fileprefix, dir=outDir)
-    os.write(file, pl)
-    os.close(file)
+    filename=tempfile.mktemp(suffix='.txt', prefix=fileprefix, dir=outDir)
+    fp=open(filename, 'w+')
+    os.write(fp, pl)
+    os.close(fp)
+    os.unlink(filename)

@@ -77,6 +77,7 @@ class OutMsg(object):
             self.smsgw.openModule1()
             self.smsgw.sendCmd('AT+CMGS="%s"\r%s%c' % (self.phNumber, self.text, 26)) # chr(26) = Ctrl-Z
             self.smsgw.closeModule1()
+            self.smsgw.info('InOut: %s;OUT;%s' % (datetime.datetime.now().strftime('%Y-%m-%dT%H:%M'), self.phNumber))
 
     def delete(self):
         if self.good and self.filename:
@@ -180,6 +181,7 @@ class InMsg(object):
             msg += self.msgTxt()
             smtp=smtplib.SMTP(server)
             smtp.sendmail(sender, to, msg)
+            self.smsgw.info('InOut: %s;IN;%s' % (datetime.datetime.now().strftime('%Y-%m-%dT%H:%M'), self.phNumber))
 
     def delete(self):
         if self.good:
