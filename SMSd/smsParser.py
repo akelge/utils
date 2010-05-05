@@ -76,4 +76,3 @@ for pl in payload:
     fp=open(filename, 'w+')
     os.write(fp, pl)
     os.close(fp)
-    os.unlink(filename)
