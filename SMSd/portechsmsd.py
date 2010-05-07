@@ -49,17 +49,21 @@ class OutMsg(object):
     def __init__(self, filename=None, phNumber=None, text=None, smsgw=None):
         self.good=False
         self.smsgw=smsgw
+        self.text=text
+        self.phNumber=phNumber
         if filename:
-            self.filename=filename
-            (self.phNumber, date, uniqText) = os.path.basename(filename).split(':')
-            (uniqText, ext) = uniqText.split('.')
+            if re.search('[+0-9]+:[0-9]+:.+\.txt$', filename):
+                self.filename=filename
+                self.smsgw.debug('Parsing file %s' % filename)
+                (self.phNumber, date, uniqText) = os.path.basename(filename).split(':')
+                (uniqText, ext) = uniqText.split('.')
 
-            self.text=open(filename, 'r+').read()
+                self.text=open(filename, 'r+').read()
 
         else:
             self.filename=None
             self.smsgw=smsgw
-            self.text=text.decode('utf-8')
+            self.text=text
             self.phNumber='+%s' % phNumber
 
         if self.text and self.phNumber and self.smsgw:
@@ -163,7 +167,7 @@ class InMsg(object):
                     self.date.strftime('%Y%m%d%H%M%S'),
                     hashlib.md5(self.text).hexdigest())
 
-            open(filename, 'w+').write(self.msgTxt)
+            open(filename, 'w+').write(self.msgTxt())
 
     def send(self):
         """
@@ -349,6 +353,7 @@ class SMSd(object):
                 # Child
                 self.setProcessName()
                 self.smsgw=SMSgw(conf=self.c, logger=self.logger)
+                self.smsgw.connect()
                 self.writePID()
                 self.setupSignals()
                 self.idleCycle()
@@ -398,10 +403,10 @@ class SMSd(object):
 
     def idleCycle(self):
         pollCount=0
-        self.smsgw.connect()
         while True:
             self.smsgw.poll()
             self.smsgw.sendAll()
+            # self.smsgw.saveAll()
             time.sleep(60)
             pollCount+=1
             if pollCount==10:
