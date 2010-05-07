@@ -4,6 +4,7 @@
 import smtplib, hashlib, re, datetime, os, time, sys
 import logging
 import signal
+import ldap
 from telnetlib import Telnet
 from ConfigParser import SafeConfigParser as confParser
 
@@ -134,7 +135,7 @@ class InMsg(object):
             return
 
         self.status=status.replace('"', '')
-        self.phNumber=phNumber.replace('"', '')
+        self.phNumber=self.ldapLookup(phNumber)
         self.date="20%sT%s" % (date.replace('/', '-'), time) # Canonical ISO format, we assume that year >= 2000
         self.date=self.date.replace('"', '')
         self.date=datetime.datetime.strptime('-'.join(self.date.split('+')[0].split('-')[0:3]), '%Y-%m-%dT%H:%M:%S')
@@ -153,6 +154,21 @@ class InMsg(object):
                 self.date,
                 self.status,
                 self.text)
+
+    def ldapLookup(self, phNumber):
+        cn='Unknown'
+        if phNumber:
+            phNumber=phNumber.replace('"', '')
+            lFilter=self.smsgw.ldapFilter % phNumber
+            lAttrs=[self.smsgw.ldapAttr]
+            self.smsgw.debug('LDAP filter: %s, LDAP attrs: %s' % (lFilter, lAttrs))
+            res=self.smsgw.ldap.search_s(self.smsgw.ldapBase,
+                    ldap.SCOPE_SUBTREE,
+                    lFilter,
+                    lAttrs)
+            self.smsgw.debug('LDAP record: %s' % res)
+            if res: cn=res[0][1]['cn'][0]
+            return '%s <%s>' % (cn, phNumber)
 
     def msgTxt(self):
         return 'Date: %s\nFrom: %s\n\n%s' % (self.date, self.phNumber, self.text)
@@ -211,6 +227,7 @@ class SMSgw(object):
             self.initLog()
         else:
             self.logger=logger
+        self.ldapInit()
 
     def setConf(self):
         # Telnet params
@@ -242,6 +259,14 @@ class SMSgw(object):
     def info(self, msg): return self.logger.info(msg)
     def error(self, msg): return self.logger.error(msg)
 
+    def ldapInit(self):
+        if self.c.has_section('ldap'):
+            self.debug('Opening connection to LDAP server')
+            self.ldap = ldap.initialize(self.c.get('ldap', 'url'))
+            self.ldap.bind_s(self.c.get('ldap', 'bind_dn'), self.c.get('ldap', 'bind_secret'))
+            self.ldapBase = self.c.get('ldap', 'base')
+            self.ldapFilter = self.c.get('ldap', 'filter')
+            self.ldapAttr = self.c.get('ldap', 'attr')
 
     def connect(self):
         self.t=Telnet(self.hostname, 23)
