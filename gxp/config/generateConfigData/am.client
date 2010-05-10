@@ -1,0 +1,40 @@
+DATA_MAC=000B82235915
+DATA_USER=Andrea Mistrali
+DATA_ID=759
+DATA_PASSWORD=759
+
+P35=$ID
+P36=$ID
+P34=$PASSWORD
+P3=$USER
+
+#Suoneria
+#P104#2
+
+#Headset TX Gain
+P1301=1
+
+#Headset TX Gain
+P1302=1
+
+# MPK 1
+P302=Benedetto Costa
+P303=751
+# MPK 2
+P305=Nicola Parodi
+P306=755
+# MPK 3
+P308=Cristiano Vattuone
+P309=752
+# MPK 4
+P311=Carlo De Marini
+P312=760
+# MPK 5
+P314=Valeria Ballarino
+P315=757
+# MPK 6
+P317=Marco Salaris
+P318=756
+# MPK 7
+P320=Paola Lagomarsino
+P321=758

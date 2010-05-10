@@ -1,0 +1,34 @@
+DATA_MAC=000B82235600
+DATA_USER=Simone Cingano
+DATA_ID=754
+DATA_PASSWORD=754
+
+P35=$ID
+P36=$ID
+P34=$PASSWORD
+P3=$USER
+
+#SUONERIA PERSONALIZZATA
+#P104#3
+
+# MPK 1
+P302=Benedetto Costa
+P303=751
+# MPK 2
+P305=Nicola Parodi
+P306=755
+# MPK 3
+P308=Cristiano Vattuone
+P309=752
+# MPK 4
+P311=Valeria Ballarino
+P312=757
+# MPK 5
+P314=Marco Salaris
+P315=756
+# MPK 6  
+P317=Paola Lagomarsino
+P318=758
+# MPK 7 
+P320=Andrea Mistrali
+P321=759

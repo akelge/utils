@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- This file creates identical result to GXP-2000 default behavior -->
+<Screen>
+    <IdleScreen>
+        <ShowStatusLine>true</ShowStatusLine>
+        <DisplayString font="f8" halign="Center">
+            <DisplayStr>$W $d $M</DisplayStr>
+            <X>65</X>
+            <Y>0</Y>
+        </DisplayString>
+        <DisplayString font="f13h" halign="Center" a1reg="false">
+            <DisplayStr>$N</DisplayStr>
+            <X>65</X>
+            <Y>12</Y>
+        </DisplayString>
+        <DisplayString font="f13b" halign="Center" a1reg="true">
+            <DisplayStr>$N</DisplayStr>
+            <X>65</X>
+            <Y>12</Y>
+        </DisplayString>
+        <DisplayString font="f13h" halign="Center" a1reg="false">
+            <DisplayStr>CUBE $X</DisplayStr>
+            <X>65</X>
+            <Y>28</Y>
+        </DisplayString>
+        <DisplayString font="f13b" halign="Center" a1reg="true">
+            <DisplayStr>CUBE $X</DisplayStr>
+            <X>65</X>
+            <Y>28</Y>
+        </DisplayString>
+        <!--<DisplayString halign="Center" valign="Bottom">
+            <DisplayStr>$I</DisplayStr>
+            <X>65</X>
+            <Y>48</Y>
+        </DisplayString>-->
+    </IdleScreen>
+</Screen>
+

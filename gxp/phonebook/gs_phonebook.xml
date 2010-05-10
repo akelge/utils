@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<AddressBook>
+<Contact>
+	<LastName>SC Cell</LastName>
+	<Phone>
+		<phonenumber>03286422890</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>AM Cell</LastName>
+	<Phone>
+		<phonenumber>03466107687</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>BCB Cell</LastName>
+	<Phone>
+		<phonenumber>03356063447</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>BCB CellCH</LastName>
+	<Phone>
+		<phonenumber>00041793677293</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>UC Cell</LastName>
+	<Phone>
+		<phonenumber>03355646089</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>NP Cell</LastName>
+	<Phone>
+		<phonenumber>0393343198713</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>MS Cell</LastName>
+	<Phone>
+		<phonenumber>03356490935</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>VB Cell</LastName>
+	<Phone>
+		<phonenumber>03479773145</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>PL Cell</LastName>
+	<Phone>
+		<phonenumber>03802906168</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>CDM Cell</LastName>
+	<Phone>
+		<phonenumber>03453632723</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+<Contact>
+	<LastName>CV Cell</LastName>
+	<Phone>
+		<phonenumber>03404549201</phonenumber>
+		<accountindex>0</accountindex>
+	</Phone>
+</Contact>
+</AddressBook>
