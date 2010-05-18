@@ -31,7 +31,9 @@ DEFAULTS= {
         'pidfile': '/var/run/smsd.pid',
         'logfile': '/var/log/smsd.log',
         'loglevel': 'INFO',
-        'timeout': '10'
+        'timeout': '10',
+        'maxpolls': '10',
+        'idletime': '60'
             }
 
 class OutMsg(object):
@@ -268,6 +270,12 @@ class SMSgw(object):
             self.ldapFilter = self.c.get('ldap', 'filter')
             self.ldapAttr = self.c.get('ldap', 'attr')
 
+    def ldapClose(self):
+        if self.c.has_section('ldap'):
+            self.debug('Closing connection to LDAP server')
+            self.ldap.unbind()
+
+
     def connect(self):
         self.t=Telnet(self.hostname, 23)
         self.t.set_debuglevel(0)
@@ -276,12 +284,14 @@ class SMSgw(object):
         self.t.write('%s\r\n' % self.password)
         self.t.read_until(']', self.timeout)
         self.info("connected to %s" % self.hostname)
+        self.ldapInit()
 
     def logout(self):
         self.sendCmd('logout', 'exit...')
         self.t.close()
         del self.t
         self.info("logout from %s" % self.hostname)
+        self.ldapClose()
 
     # Low level device communication commands
     def sendCmd(self, cmd, expectStr=None):
@@ -390,6 +400,8 @@ class SMSd(object):
         self.pidfile = self.c.get('smsd', 'pidfile')
         self.logfile = self.c.get('smsd', 'logfile')
         self.loglevel = self.c.get('smsd', 'loglevel')
+        self.maxpolls = self.c.getint('smsd', 'maxpolls')
+        self.idletime = self.c.getfloat('smsd', 'idletime')
 
     def setProcessName(self):
         # change process name
@@ -431,10 +443,9 @@ class SMSd(object):
         while True:
             self.smsgw.poll()
             self.smsgw.sendAll()
-            # self.smsgw.saveAll()
-            time.sleep(60)
+            time.sleep(self.idletime)
             pollCount+=1
-            if pollCount==10:
+            if pollCount==self.maxpolls:
                 self.info('Max polls reached, relogin...')
                 self.smsgw.logout()
                 time.sleep(20)
