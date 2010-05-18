@@ -164,10 +164,12 @@ class InMsg(object):
             lFilter=self.smsgw.ldapFilter % phNumber
             lAttrs=[self.smsgw.ldapAttr]
             self.smsgw.debug('LDAP filter: %s, LDAP attrs: %s' % (lFilter, lAttrs))
+            self.smsgw.ldapInit()
             res=self.smsgw.ldap.search_s(self.smsgw.ldapBase,
                     ldap.SCOPE_SUBTREE,
                     lFilter,
                     lAttrs)
+            self.smsgw.ldapClose()
             self.smsgw.debug('LDAP record: %s' % res)
             if res: cn=res[0][1]['cn'][0]
             return '%s <%s>' % (cn, phNumber)
@@ -203,6 +205,7 @@ class InMsg(object):
             msg += self.msgTxt()
             smtp=smtplib.SMTP(server)
             smtp.sendmail(sender, to, msg)
+            smtp.close()
             self.smsgw.info('InOut: %s;IN;%s' % (datetime.datetime.now().strftime('%Y-%m-%dT%H:%M'), self.phNumber))
 
     def delete(self):
@@ -229,7 +232,7 @@ class SMSgw(object):
             self.initLog()
         else:
             self.logger=logger
-        self.ldapInit()
+        # self.ldapInit()
 
     def setConf(self):
         # Telnet params
@@ -241,6 +244,10 @@ class SMSgw(object):
         self.sender = self.c.get('email', 'from')
         self.to = self.c.get('email', 'to')
         self.server = self.c.get('email', 'server')
+        # LDAP params
+        self.ldapBase = self.c.get('ldap', 'base')
+        self.ldapFilter = self.c.get('ldap', 'filter')
+        self.ldapAttr = self.c.get('ldap', 'attr')
 
         self.ok=re.compile('0\r\n')
         self.polling=True
@@ -266,15 +273,14 @@ class SMSgw(object):
             self.debug('Opening connection to LDAP server')
             self.ldap = ldap.initialize(self.c.get('ldap', 'url'))
             self.ldap.bind_s(self.c.get('ldap', 'bind_dn'), self.c.get('ldap', 'bind_secret'))
-            self.ldapBase = self.c.get('ldap', 'base')
-            self.ldapFilter = self.c.get('ldap', 'filter')
-            self.ldapAttr = self.c.get('ldap', 'attr')
+            # self.ldapBase = self.c.get('ldap', 'base')
+            # self.ldapFilter = self.c.get('ldap', 'filter')
+            # self.ldapAttr = self.c.get('ldap', 'attr')
 
     def ldapClose(self):
         if self.c.has_section('ldap'):
             self.debug('Closing connection to LDAP server')
             self.ldap.unbind()
-
 
     def connect(self):
         self.t=Telnet(self.hostname, 23)
@@ -284,29 +290,30 @@ class SMSgw(object):
         self.t.write('%s\r\n' % self.password)
         self.t.read_until(']', self.timeout)
         self.info("connected to %s" % self.hostname)
-        self.ldapInit()
+        # self.ldapInit()
 
     def logout(self):
         self.sendCmd('logout', 'exit...')
         self.t.close()
         del self.t
         self.info("logout from %s" % self.hostname)
-        self.ldapClose()
+        # self.ldapClose()
 
     # Low level device communication commands
     def sendCmd(self, cmd, expectStr=None):
         if not expectStr:
             expectStr=self.ok
         self.t.write('%s\r\n' % cmd)
+        self.debug('sent command :: %s' % cmd)
         res=self.t.expect([expectStr], self.timeout)
         return res[2]
 
     def openModule1(self):
         self.debug('open module1')
         self.sendCmd('module1', 'release module 1')
-        self.sendCmd('ate0')
-        self.sendCmd('atv0')
-        self.sendCmd('at+cmgf=1')
+        self.sendCmd('ATE0')
+        self.sendCmd('ATV0')
+        self.sendCmd('AT+CMGF=1')
 
     def closeModule1(self):
         self.debug('close module1')
@@ -323,15 +330,20 @@ class SMSgw(object):
         self.openModule1()
         msgList=self.sendCmd('AT+CMGL="%s"' % status)
         self.closeModule1()
+        self.debug('Got back %s' % msgList)
         msgs=msgList.split('\r\n')
         # cleanup
         for count in range(msgs.count('')): msgs.remove('')
+        for count in range(msgs.count('0')): msgs.remove('0')
+        self.debug('Got back %s' % msgs)
 
         for idx in range(0,len(msgs),2):
-            try:
-                self.inMsgs.append(InMsg(msgs[idx], msgs[idx+1], smsgw=self))
-            except:
-                pass
+            # try:
+            self.debug('idx: %s - msgs[idx]: %s - msgs[idx+1]: %s' % (idx,
+                msgs[idx], msgs[idx+1]))
+            self.inMsgs.append(InMsg(msgs[idx], msgs[idx+1], smsgw=self))
+            # except:
+                # pass
         self.debug('Got %d incoming messages' % len(self.inMsgs))
 
     def pollOut(self):
