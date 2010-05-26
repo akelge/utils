@@ -385,7 +385,7 @@ class SMSgw(object):
     def saveAll(self):
         self.debug('Saving all messages')
         for msg in self.inMsgs: msg.save()
-info
+
     def sendAll(self):
         for msg in self.inMsgs:
             msg.send()
