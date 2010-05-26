@@ -283,14 +283,24 @@ class SMSgw(object):
             self.ldap.unbind()
 
     def connect(self):
-        self.t=Telnet(self.hostname, 23)
-        self.t.set_debuglevel(0)
+        try:
+            self.t=Telnet(self.hostname, 23)
+            self.t.set_debuglevel(0)
+        except:
+            self.info("connection failed to %s" % self.hostname)
+            msg  = 'From: %s\n' % self.sender
+            msg += 'To: sys@cubeholding.com\n' 
+            msg += 'Subject: SMSd alert!\n\n' % (self.phNumber)
+            msg += "Connection failed to %s\n" % self.hostname
+            smtp=smtplib.SMTP(self.server)
+            smtp.sendmail(self.sender, 'sys@cubeholding.com', msg)
+            smtp.close()
+            exit(2)
         self.t.read_until('username:', self.timeout)
         self.t.write('%s\r\n' % self.username)
         self.t.write('%s\r\n' % self.password)
         self.t.read_until(']', self.timeout)
         self.info("connected to %s" % self.hostname)
-        # self.ldapInit()
 
     def logout(self):
         self.sendCmd('logout', 'exit...')
@@ -375,7 +385,7 @@ class SMSgw(object):
     def saveAll(self):
         self.debug('Saving all messages')
         for msg in self.inMsgs: msg.save()
-
+info
     def sendAll(self):
         for msg in self.inMsgs:
             msg.send()
