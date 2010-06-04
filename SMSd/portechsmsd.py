@@ -107,7 +107,7 @@ class OutMsg(object):
             to = self.smsgw.to
             server = self.smsgw.server
 
-            self.phNumber=self.ldapLookup(phNumber)
+            self.phNumber=self.ldapLookup(self.phNumber)
             self.smsgw.debug('sending feedback message to %s' % to)
             msg  = 'From: %s\n' % sender
             msg += 'To: %s\n' % to
