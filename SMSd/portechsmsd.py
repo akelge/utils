@@ -112,7 +112,7 @@ class OutMsg(object):
             msg  = 'From: %s\n' % sender
             msg += 'To: %s\n' % to
             msg += 'Subject: Short message to %s\n\n' % (self.phNumber)
-            msg += self.msgTxt()
+            msg += self.text
             smtp=smtplib.SMTP(server)
             smtp.sendmail(sender, to, msg)
             smtp.close()
