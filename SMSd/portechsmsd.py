@@ -78,6 +78,23 @@ class OutMsg(object):
     def __str__(self):
         return u"to %s\n%s" % (self.phNumber, self.text)
 
+    def ldapLookup(self, phNumber):
+        cn='Unknown'
+        if phNumber:
+            phNumber=phNumber.replace('"', '')
+            lFilter=self.smsgw.ldapFilter % phNumber
+            lAttrs=[self.smsgw.ldapAttr]
+            self.smsgw.debug('LDAP filter: %s, LDAP attrs: %s' % (lFilter, lAttrs))
+            self.smsgw.ldapInit()
+            res=self.smsgw.ldap.search_s(self.smsgw.ldapBase,
+                    ldap.SCOPE_SUBTREE,
+                    lFilter,
+                    lAttrs)
+            self.smsgw.ldapClose()
+            self.smsgw.debug('LDAP record: %s' % res)
+            if res: cn=res[0][1]['cn'][0]
+            return '%s <%s>' % (cn, phNumber)
+
     def send(self):
         if self.good:
             self.smsgw.debug('Sending message to %s' % self.phNumber)
@@ -85,6 +102,20 @@ class OutMsg(object):
             self.smsgw.sendCmd('AT+CMGS="%s"\r%s%c' % (self.phNumber, self.text, 26)) # chr(26) = Ctrl-Z
             self.smsgw.closeModule1()
             self.smsgw.info('InOut: %s;OUT;%s' % (datetime.datetime.now().strftime('%Y-%m-%dT%H:%M'), self.phNumber))
+            # Feedback
+            sender = self.smsgw.sender
+            to = self.smsgw.to
+            server = self.smsgw.server
+
+            self.phNumber=self.ldapLookup(phNumber)
+            self.smsgw.debug('sending feedback message to %s' % to)
+            msg  = 'From: %s\n' % sender
+            msg += 'To: %s\n' % to
+            msg += 'Subject: Short message to %s\n\n' % (self.phNumber)
+            msg += self.msgTxt()
+            smtp=smtplib.SMTP(server)
+            smtp.sendmail(sender, to, msg)
+            smtp.close()
 
     def delete(self):
         if self.good and self.filename:
