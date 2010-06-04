@@ -119,7 +119,7 @@ class InMsg(object):
         try:
             (self.cmd, data)=self.data.split(': ')
         except ValueError:
-            self.smsgw.error("Error parsing message: data: %s - msg: %s" % (data, msg))
+            self.smsgw.error("Error parsing message: data: %s - msg: %s" % (self.data, self.text))
             return
 
         self.cmd=self.cmd.strip()
