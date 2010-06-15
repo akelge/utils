@@ -1,0 +1,11 @@
+#!/bin/sh
+# -*- coding: latin-1 -*-
+
+# Copyright by Andrea Mistrali <am@am.cx>
+#
+# Synopsis:  Delete old EasyLink messages
+#
+# $Id$
+# DEBUG="echo"
+DIR="$MAILC/__public__/maildir/sys/cron/cur"
+find $DIR -type f -ctime 7 -exec rm {} \;

@@ -1,0 +1,12 @@
+#!/bin/sh
+# -*- coding: latin-1 -*-
+
+# Copyright by Andrea Mistrali <am@am.cx>
+#
+# Synopsis: Mail Cleaning rules
+#
+# $Id$
+LIB="/usr/local/lib/mailClean"
+RUNPARTS="/bin/run-parts"
+
+$RUNPARTS $LIB

@@ -164,7 +164,7 @@ class InMsg(object):
             self.index=index
 
         else:
-            self.smsgw.error("Invalid command %s - data: %s - msg: %s" % (self.cmd, self.data, self.msg))
+            self.smsgw.error("Invalid command %s - data: %s" % (self.cmd, self.data))
             return
 
         self.status=status.replace('"', '')
