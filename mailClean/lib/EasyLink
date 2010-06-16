@@ -1,0 +1,15 @@
+#!/bin/sh
+# -*- coding: latin-1 -*-
+
+# Copyright by Andrea Mistrali <am@am.cx>
+#
+# Synopsis:  Delete old EasyLink messages
+#
+# $Id$
+# DEBUG="echo"
+MAILC=/var/mail/cubeholding.com
+DIR=$MAILC/__public__/maildir/ops/EasyLink/cur
+
+for file in `find $MAILC/__public__/maildir/ops/EasyLink/cur/ -type f -ctime +7 -exec grep -lE "Subject:.*(/Ack|/Rec|/Del|/Rej|Non-Deli)" {} \;`; do
+    rm $file
+done
