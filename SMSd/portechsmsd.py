@@ -320,8 +320,8 @@ class SMSgw(object):
         except:
             self.info("connection failed to %s" % self.hostname)
             msg  = 'From: %s\n' % self.sender
-            msg += 'To: sys@cubeholding.com\n' 
-            msg += 'Subject: SMSd alert!\n\n' % (self.phNumber)
+            msg += 'To: sys@cubeholding.com\n'
+            msg += 'Subject: SMSd alert!\n\n'
             msg += "Connection failed to %s\n" % self.hostname
             smtp=smtplib.SMTP(self.server)
             smtp.sendmail(self.sender, 'sys@cubeholding.com', msg)
