@@ -1,0 +1,62 @@
+#!/bin/sh
+# -*- coding: latin-1 -*-
+
+# Copyright by Andrea Mistrali <am@am.cx>
+# First version: 2010-10-26T08:48 CEST (+0200)
+#
+# Synopsis: Dump DBS - Supports Mysql and PGsql
+#
+# $Id$
+
+# Args are:
+# $1 - host
+# $2 - type (mysql|pgsql)
+# $3 - level, defaults to Full
+
+# Parse args
+dbhost=$1
+dbtype=${2:-NONE}
+level=${3:-Full}
+
+# Defaults
+user="root"
+password="chpwd"
+label="`date +%Y%m%d`"
+ext="${dbhost}.${label}.${dbtype}.${level}.sql"
+
+# Load configuration
+. /etc/bacula/scripts/vars
+. `dirname $0`/DBmysql
+. `dirname $0`/DBpgsql
+
+if [ $COMPRESS -gt 0 ]; then
+    COMPRESSCMD="gzip -9"
+else
+    COMPRESSCMD="/bin/true"
+fi
+
+function syntax {
+cat<<EOB
+
+Syntax:
+`basename $0` "<hostname> <mysql|pgsql> [Full|Incremental]"
+
+EOB
+exit 1
+}
+
+# MAIN
+cd ${DBDUMP} # Let's go where dumps reside
+
+if [ "x$dbtype" != "xmysql" ]; then
+    if [ "x$dbtype" != "xpgsql" ]; then
+        syntax
+    fi
+fi
+
+echo "Processing $level:$dbtype@$dbhost"
+
+${dbtype}SetCommands
+${dbtype}$level
+
+# vim: set ts=4 sw=4 tw=0 ft=sh : 

@@ -1,0 +1,5 @@
+export BACKUPDIR="/BACKUP"
+export CATALOGDUMP="${BACKUPDIR}/CatalogDump"
+export DBDUMP="${BACKUPDIR}/DBDUMP"
+export COMPRESS="1"
+#export COMPRESS="/bin/true"

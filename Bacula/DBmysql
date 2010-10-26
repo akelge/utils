@@ -1,0 +1,28 @@
+# MYSQL
+function mysqlSetCommands {
+MYSQLCMD="mysql -h ${dbhost} -u ${user} -p${password}" # To be changed
+MYSQLDUMPCMD="mysqldump -cfxqR -h ${dbhost} -u ${user} -p${password}"
+}
+
+function mysqlDBList {
+echo "show databases" | $MYSQLCMD | egrep -v "Database|information_schema"|xargs
+}
+
+function mysqlFull {
+for db in `mysqlDBList`; do
+    echo "Dumping db=$db type=$dbtype level=$level host=$dbhost"
+    ${MYSQLDUMPCMD} $db > $db.${ext}
+    ${COMPRESSCMD} $db.${ext}
+done
+}
+
+function mysqlIncremental {
+echo MySQL incremental - to be implemented
+}
+
+function mysqlPost {
+mask=${ext/$level/\*}
+echo Erasing '*.'$mask'*'
+rm *.${mask}*
+}
+# vim: set ts=4 sw=4 tw=0 ft=sh : 

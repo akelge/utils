@@ -1,0 +1,38 @@
+# PostgresSQL
+function pgsqlSetCommands {
+PGOPT="-h ${dbhost} -U ${user}"
+PGCMD="psql ${PGOPT}" # To be changed
+PGDUMP="pg_dump ${PGOPT} --format=c"
+PGDUMPALL="pg_dumpall ${PGOPT} -g"
+PGPASSWORD=${password}
+export PGPASSWORD
+}
+
+function pgsqlDBList {
+echo "select datname from pg_database where not datname in ('bacula','template0') order by datname;" | \
+    $PGCMD -d template1 -q -t
+}
+
+function pgsqlFull {
+echo "Dumping global objects db type=$dbtype level=$level host=$dbhost"
+${PGDUMPALL} --file=globalobjects.${ext}
+${COMPRESSCMD} globalobjects.${ext}
+for db in `pgsqlDBList`; do
+    echo "Dumping db=$db type=$dbtype level=$level host=$dbhost"
+    ${PGDUMP} -s $db --file=$db.schema.${ext}
+    ${COMPRESSCMD} $db.schema.${ext}
+    ${PGDUMP} -a $db --file=$db.data.${ext}
+    ${COMPRESSCMD} $db.data.${ext}
+done
+}
+
+function pgsqlIncremental {
+echo PGSQL incremental - to be implemented
+}
+
+function pgsqlPost {
+mask=${ext/$level/\*}
+echo Erasing '*.'$mask'*'
+rm *.${mask}*
+}
+# vim: set ts=4 sw=4 tw=0 ft=sh : 
