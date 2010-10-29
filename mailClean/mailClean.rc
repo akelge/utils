@@ -1,0 +1,13 @@
+// mbox:age:optional query
+// lines starting with ; or // are comments and are ignored
+// empty lines are ignored
+#Public/ops/EasyLink:7d:subject /Acknowledgement
+#Public/ops/EasyLink:7d:subject /Receipt
+#Public/ops/EasyLink:7d:subject /Delivery
+#Public/ops/EasyLink:7d:subject /Rej
+#Public/ops/EasyLink:7d:subject Non-Deli
+#Public/sys/assp:7d:
+#Public/sys/bacula:7d:
+#Public/sys/cron:7d:
+#Public/Spam:7d:
+

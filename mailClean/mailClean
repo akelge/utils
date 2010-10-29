@@ -2,11 +2,27 @@
 # -*- coding: latin-1 -*-
 
 # Copyright by Andrea Mistrali <am@am.cx>
+# First version: 2010-10-29T10:54 CEST (+0200)
 #
-# Synopsis: Mail Cleaning rules
+# Synopsis: Clean Up old and useless mail messages
 #
 # $Id$
-LIB="/usr/local/lib/mailClean"
-RUNPARTS="/bin/run-parts"
+RC="/usr/local/etc/mailClean.rc"
 
-$RUNPARTS $LIB
+echo
+echo "Reading configuration from '$RC'"
+echo
+
+egrep -v "^;|^//|^\s*$" ${RC}| while IFS=":" read mbox age query; do
+    [ "x$mbox" == "x" ] && echo "mbox: (empty) *** malformed entry ***" && exit 1
+    dovembox="mailbox $mbox"
+    [ "x$age" == "x" ] && echo "mbox: $mbox - *** malformed entry ***" && exit 1
+    dovequery="sentbefore $age"
+    [ "x$query" != "x" ] && dovequery="$dovequery $query"
+
+    echo "mbox: $mbox - query: '$dovequery'"
+    doveadm -v search -u __public__ $dovembox $dovequery
+
+done
+
+echo
