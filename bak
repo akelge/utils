@@ -99,7 +99,8 @@ fi
 # EXEC
 
 FILES=`find $directory $depth $mask $delete -print`
-if [ -z $FILES ]; then # No files found
+echo "*** $FILES ***"
+if [ "$FILES" = "" ]; then # No files found
     FILES=''
     COUNT=0
 else
