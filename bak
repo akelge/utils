@@ -15,6 +15,13 @@ esc_red='\033[91m'
 esc_green='\033[92m'
 esc_reset='\033[0m'
 
+# Regexp
+# if [ `uname -s` = "Linux" ]; then
+    # regexp="-regextype posix-extended"
+# else
+    # regexp='-E'
+# fi
+
 
 ####################################################################################
 # GETOPT
@@ -84,14 +91,14 @@ fi
 
 # Process pyc
 if [ $pflag = yes ]; then
-    mask="-regex .*~$|.*\.pyc$"
+    mask="-regex .*~|.*\.pyc"
 fi
 
 
 ####################################################################################
 # EXEC
 
-FILES=`find -E $directory $mask $depth $delete -print`
+FILES=`find $directory $depth $mask $delete -print`
 if [ -z $FILES ]; then # No files found
     FILES=''
     COUNT=0
