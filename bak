@@ -49,6 +49,8 @@ if [ ! -d $directory ]; then
     echo "$directory is not a directory!"
     exit 1
 fi
+olddir=$PWD
+cd $directory
 
 ####################################################################################
 # HELP FLAG
@@ -98,12 +100,17 @@ fi
 ####################################################################################
 # EXEC
 
-FILES=`find $directory $depth $mask $delete -print`
+FILES=`find . $depth $mask $delete -print`
+FILES=`echo $FILES|sed "s#^\.#${directory}#"`
 if [ "$FILES" = "" ]; then # No files found
     FILES=''
     COUNT=0
 else
-    COUNT=`echo $FILES|wc -l|sed 's/[ ]*//'`
+    COUNT=`cat<<EOB|wc -l
+    $FILES
+EOB
+`
+   COUNT=`echo $COUNT|sed 's/ *//g'`
 fi
 
 if [ $vflag = yes ]; then
@@ -122,4 +129,5 @@ else
     echo -e "No backup files listed in ${esc_green}$directory${esc_reset}$andits"
 fi
 
+cd $olddir
 exit 0
