@@ -1,32 +1,26 @@
 #! /bin/bash
-# $Id$
-# Remove backup files (*~) and, optionally, *.pyc
 
+#
 hflag=no # help
-nflag=no # dry run - do not delete files
+nflag=no # nodelete - do not delete files
 rflag=no # recursion
 pflag=no # pyc - consider .pyc file
-vflag=no # verbose (performs delete anyway)
+vflag=no # list files (performs delete anyway)
 aflag=no # all - flags r + p
-
-# Colors
-# http://en.wikipedia.org/wiki/ANSI_escape_code#CSI_Codes
-esc_red='\033[91m'
+dflag=no # specify directory
+#
+directory=""
+startdir=$PWD
+TMP=bak`date +%s`
+#
+esc_red='\033[91m' # http://en.wikipedia.org/wiki/ANSI_escape_code#CSI_Codes
 esc_green='\033[92m'
 esc_reset='\033[0m'
-
-# Regexp
-# if [ `uname -s` = "Linux" ]; then
-    # regexp="-regextype posix-extended"
-# else
-    # regexp='-E'
-# fi
-
+#
 
 ####################################################################################
 # GETOPT
 
-# set -- $(getopt hnrplad: "$@")
 set -- $(getopt hnrpva "$@")
 while [ $# -gt 0 ]
 do
@@ -44,29 +38,22 @@ do
     shift
 done
 
-directory=${1:-$PWD}
-if [ ! -d $directory ]; then
-    echo "$directory is not a directory!"
-    exit 1
-fi
-olddir=$PWD
-cd $directory
-
 ####################################################################################
 # HELP FLAG
 # print help and exit
 
 if [ $hflag = yes ]; then
-	echo "Usage: bak [-vrpan] [DIRECTORY]"
+	echo "Usage: bak [-hnrpva] [DIRECTORY]"
     echo "  Deletes backup files ( *~ )"
     echo "  If no DIRECTORY deletes in current directory"
     echo
     echo "Options:"
+    echo "   -h     Display this help"
+    echo "   -n     Dry run (no delete)"
     echo "   -r     Recursive"
     echo "   -p     Delete also .pyc"
-    echo "   -v     Be verbose"
-    echo "   -n     Dry run (no delete)"
-    echo "   -a     All, alias for -pr"
+    echo "   -v     Verbose"
+    echo "   -a     Alias for -pr"
 	echo
     exit 0
 fi
@@ -74,60 +61,57 @@ fi
 ####################################################################################
 # PREPARE
 
+# Directory
+directory=${1:-$PWD}
+# check if given directory is a directory
+if [ ! -d $directory ] ; then
+    echo "'$directory' is not a directory"
+    exit 1
+fi
+
 # Recursion
 depth='-maxdepth 1'
 andits=''
-delete='-delete'
-mask="-regex .*~$"
-
-# Recursive
 if [ $rflag = yes ]; then
     depth='' #recursive
     andits=' and its subdirectories'
 fi
 
-# Dry run
-if [ $nflag = yes ]; then
-    delete=''
-fi
-
-# Process pyc
-if [ $pflag = yes ]; then
-    mask="-regex .*~|.*\.pyc"
-fi
-
-
 ####################################################################################
 # EXEC
 
-FILES=`find . $depth $mask $delete -print`
-FILES=`echo $FILES|sed "s#^\.#${directory}#"`
-if [ "$FILES" = "" ]; then # No files found
-    FILES=''
-    COUNT=0
-else
-    COUNT=`cat<<EOB|wc -l
-    $FILES
-EOB
-`
-   COUNT=`echo $COUNT|sed 's/ *//g'`
+cd $directory
+
+#list files in TMP file
+find . -name "*~" $depth -exec echo "\"{}\"" \; > /tmp/$TMP 2> /dev/null
+if [ $pflag = yes ]; then
+    find . -name "*pyc" $depth -exec echo "\"{}\"" \; >> /tmp/$TMP 2> /dev/null
 fi
 
-if [ $vflag = yes ]; then
-    cat<<EOB
-$FILES
-EOB
-fi
+FILES=`wc -l /tmp/$TMP | cut -d/ -f1 | sed 's/[ ]//g' `
+if [ ${FILES} -ge 1 ] ; then
 
-if [ $COUNT -gt 0 ]; then
-    echo -ne "$COUNT backup files "
-    if [ $nflag = yes ]; then
-        echo -n "would be "
+    if [ $vflag = yes ]; then
+        # list files
+        cat -n /tmp/$TMP | sed 's/"//g'
+        echo
     fi
-    echo -e "${esc_red}deleted${esc_reset} in ${esc_green}$directory${esc_reset}$andits"
+
+    if [ $nflag = no ]; then
+        cat /tmp/$TMP | xargs rm -f #delete
+        echo -e "$FILES bak files ${esc_red}deleted${esc_reset} in ${esc_green}$directory${esc_reset}$andits"
+    else
+        echo -e "$FILES bak files listed in ${esc_green}$directory${esc_reset}$andits"
+    fi
+
 else
-    echo -e "No backup files listed in ${esc_green}$directory${esc_reset}$andits"
+    echo -e "No bak files listed in ${esc_green}$directory${esc_reset}$andits"
 fi
 
-cd $olddir
+#remove TMP file
+rm -f /tmp/$TMP
+
+# return to startdir
+cd $startdir
+
 exit 0
