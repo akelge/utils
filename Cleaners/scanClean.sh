@@ -3,7 +3,7 @@
 
 # Copyright by Andrea Mistrali <am@am.cx>
 # First version: 2010-11-09T11:10 CET (+0100)
-# Last modified: 2010-11-10T10:55 CET (+0100)
+# Last modified: 2010-11-22T09:15 CET (+0100)
 #
 # Synopsis: Clean SCAN folder
 #
@@ -26,14 +26,14 @@ for user in *; do
 Le scansioni più vecchie di 28 giorni sono state rimosse.
 
 *****************************************************************
-**            Lista delle scansioni eliminate (fake)           **
+**            Lista delle scansioni eliminate                  **
 *****************************************************************
 |||     DATA DI CREAZIONE           ||           NOME FILE    |||
 EOB
 
-    # ${DEBUG} find $user -type f -mtime +28 -exec  stat -c"%y || %n" {} ; rm -v {} \; > /tmp/$user.mail
-    find . -type f -name "[a-zA-Z0-9]*" -mtime +21 -exec  stat -c"%y || %n" {} \; > /tmp/$user.21.txt
-    find . -type f -name "[a-zA-Z0-9]*" -mtime +14 -exec  stat -c"%y || %n" {} \; > /tmp/$user.14.txt
+# 28 days
+    find $user -type f -mtime +28 -exec  stat -c"%y || %n" {} && rm -v {} ";" >> /tmp/$user.mail
+
 
     cat<<EOB >> /tmp/$user.mail
 
@@ -42,6 +42,12 @@ EOB
 *****************************************************************
 |||     DATA DI CREAZIONE           ||           NOME FILE    |||
 EOB
+
+# 21 days
+    find . -type f -name "[a-zA-Z0-9]*" -mtime +21 -exec  stat -c"%y || %n" {} \; > /tmp/$user.21.txt
+# 14 days
+    find . -type f -name "[a-zA-Z0-9]*" -mtime +14 -exec  stat -c"%y || %n" {} \; > /tmp/$user.14.txt
+
     cat /tmp/$user.21.txt /tmp/$user.14.txt|sort|uniq -d >> /tmp/$user.mail
 
     cat<<EOB >> /tmp/$user.mail
