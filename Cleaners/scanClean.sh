@@ -3,7 +3,7 @@
 
 # Copyright by Andrea Mistrali <am@am.cx>
 # First version: 2010-11-09T11:10 CET (+0100)
-# Last modified: 2010-11-22T09:15 CET (+0100)
+# Last modified: 2010-12-27T10:24 CET (+0100)
 #
 # Synopsis: Clean SCAN folder
 #
@@ -32,8 +32,8 @@ Le scansioni più vecchie di 28 giorni sono state rimosse.
 EOB
 
 # 28 days
-    find $user -type f -mtime +28 -exec  stat -c"%y || %n" {} && rm -v {} ";" >> /tmp/$user.mail
-
+    find . -type f -name "[a-zA-Z0-9]*" -mtime +28 -exec  stat -c"%y || %n" {} ";" >> /tmp/$user.mail
+    find . -type f -name "[a-zA-Z0-9]*" -mtime +28 -exec  rm -v {} ";" > /dev/null
 
     cat<<EOB >> /tmp/$user.mail
 
