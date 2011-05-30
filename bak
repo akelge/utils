@@ -1,5 +1,9 @@
 #! /bin/bash
 
+#### BAK bash script
+#### Deletes backup files
+#### v4 05/2010 Simone Cingano
+
 #
 hflag=no # help
 nflag=no # nodelete - do not delete files
@@ -7,21 +11,23 @@ rflag=no # recursion
 pflag=no # pyc - consider .pyc file
 vflag=no # list files (performs delete anyway)
 aflag=no # all - flags r + p
+mflag=no # vim - consider .swp, .swo, swn
 dflag=no # specify directory
 #
 directory=""
 startdir=$PWD
 TMP=bak`date +%s`
 #
-esc_red='\033[91m' # http://en.wikipedia.org/wiki/ANSI_escape_code#CSI_Codes
-esc_green='\033[92m'
+esc_bold='\033[1m' # http://en.wikipedia.org/wiki/ANSI_escape_code#CSI_Codes
 esc_reset='\033[0m'
+esc_red='\033[91m' 
+esc_green='\033[92m'
 #
 
 ####################################################################################
 # GETOPT
 
-set -- $(getopt hnrpva "$@")
+set -- $(getopt hnmrpva "$@")
 while [ $# -gt 0 ]
 do
     case "$1" in
@@ -29,6 +35,7 @@ do
     -n) nflag=yes;;
     -r) rflag=yes;;
     -p) pflag=yes;;
+    -m) mflag=yes;;
     -v) vflag=yes;;
     -a) pflag=yes; rflag=yes;;
     --) shift; break;;
@@ -43,17 +50,19 @@ done
 # print help and exit
 
 if [ $hflag = yes ]; then
-	echo "Usage: bak [-hnrpva] [DIRECTORY]"
-    echo "  Deletes backup files ( *~ )"
-    echo "  If no DIRECTORY deletes in current directory"
     echo
-    echo "Options:"
-    echo "   -h     Display this help"
-    echo "   -n     Dry run (no delete)"
-    echo "   -r     Recursive"
-    echo "   -p     Delete also .pyc"
-    echo "   -v     Verbose"
-    echo "   -a     Alias for -pr"
+	echo -e "${esc_bold}Usage:${esc_reset} bak [-hnrpva] [DIRECTORY]"
+    echo -e "  Deletes backup files ( *~ )"
+    echo -e "  If no DIRECTORY deletes in current directory"
+    echo
+    echo -e "${esc_bold}Options:${esc_reset}"
+    echo -e "   ${esc_green}-h${esc_reset}     Display this help"
+    echo -e "   ${esc_green}-n${esc_reset}     Dry run (${esc_green}no delete will occur${esc_reset})"
+    echo -e "   ${esc_green}-r${esc_reset}     Recursive"
+    echo -e "   ${esc_green}-p${esc_reset}     Deletes also .pyc"
+    echo -e "   ${esc_green}-m${esc_reset}     Deletes also VIM files (${esc_red}backup & swap${esc_reset})"
+    echo -e "   ${esc_green}-v${esc_reset}     Verbose (lists files)"
+    echo -e "   ${esc_green}-a${esc_reset}     Alias for -rpm"
 	echo
     exit 0
 fi
@@ -85,7 +94,10 @@ cd $directory
 #list files in TMP file
 find . -name "*~" $depth -exec echo "\"{}\"" \; > /tmp/$TMP 2> /dev/null
 if [ $pflag = yes ]; then
-    find . -name "*pyc" $depth -exec echo "\"{}\"" \; >> /tmp/$TMP 2> /dev/null
+    find . -name \*.pyc $depth -exec echo "\"{}\"" \; >> /tmp/$TMP 2> /dev/null
+fi
+if [ $mflag = yes ]; then
+    find . \( -name \*.swp -or -name \*.swo -or -name \*.swn \) $depth -exec echo "\"{}\"" \; >> /tmp/$TMP 2> /dev/null
 fi
 
 FILES=`wc -l /tmp/$TMP | cut -d/ -f1 | sed 's/[ ]//g' `
@@ -96,16 +108,21 @@ if [ ${FILES} -ge 1 ] ; then
         cat -n /tmp/$TMP | sed 's/"//g'
         echo
     fi
+    if [ ${FILES} = 1 ]; then
+        label_file="file"
+    else
+        label_file="files"
+    fi
 
     if [ $nflag = no ]; then
         cat /tmp/$TMP | xargs rm -f #delete
-        echo -e "$FILES bak files ${esc_red}deleted${esc_reset} in ${esc_green}$directory${esc_reset}$andits"
+        echo -e "  ${esc_red}$FILES bak ${label_file}${esc_reset} deleted in ${esc_green}$directory${esc_reset}$andits"
     else
-        echo -e "$FILES bak files listed in ${esc_green}$directory${esc_reset}$andits"
+        echo -e "  ${esc_green}$FILES bak ${label_file}${esc_reset} listed in ${esc_green}$directory${esc_reset}$andits"
     fi
 
 else
-    echo -e "No bak files listed in ${esc_green}$directory${esc_reset}$andits"
+    echo -e "  ${esc_green}No bak files${esc_reset} listed in ${esc_green}$directory${esc_reset}$andits"
 fi
 
 #remove TMP file
