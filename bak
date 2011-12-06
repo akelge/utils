@@ -92,9 +92,9 @@ fi
 cd $directory
 
 #list files in TMP file
-find . -name "*~" $depth -exec echo "\"{}\"" \; > /tmp/$TMP 2> /dev/null
+find . -name "*~" -type f $depth -exec echo "\"{}\"" \; > /tmp/$TMP 2> /dev/null
 if [ $pflag = yes ]; then
-    find . -name \*.pyc $depth -exec echo "\"{}\"" \; >> /tmp/$TMP 2> /dev/null
+    find . -name \*.pyc -type f $depth -exec echo "\"{}\"" \; >> /tmp/$TMP 2> /dev/null
 fi
 if [ $mflag = yes ]; then
     find . \( -name \*.swp -or -name \*.swo -or -name \*.swn \) $depth -exec echo "\"{}\"" \; >> /tmp/$TMP 2> /dev/null
