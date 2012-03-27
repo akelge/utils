@@ -8,8 +8,6 @@
 # $Id$
 
 from objc import YES, NO, IBAction, IBOutlet
-import objc
-import os
 from Foundation import *
 from AppKit import *
 from account import *
