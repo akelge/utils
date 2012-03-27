@@ -8,9 +8,6 @@
 # $Id$
 
 from Foundation import *
-from os import system
-import sys
-from xml.parsers.expat import ExpatError
 
 class Accounts(object):
     pl=None
