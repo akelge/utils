@@ -3,7 +3,7 @@
 #  mailVirtual
 #
 #  Created by Andrea Mistrali on 25/09/09.
-#  Copyright Cube Gestioni S.r.l. 2009. All rights reserved.
+#  Copyright akelge@gmail.com 2009. All rights reserved.
 #
 # $Id$
 

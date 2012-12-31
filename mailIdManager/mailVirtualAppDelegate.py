@@ -3,7 +3,7 @@
 #  mailVirtual
 #
 #  Created by Andrea Mistrali on 25/09/09.
-#  Copyright Cube Gestioni S.r.l. 2009. All rights reserved.
+#  Copyright akelge@gmail.com 2009. All rights reserved.
 #
 # $Id$
 
@@ -12,6 +12,7 @@ from Foundation import *
 from AppKit import *
 from account import *
 from arrayController import *
+import os
 
 class mailVirtualAppDelegate(NSObject):
     accountList = IBOutlet('accountList')
@@ -29,7 +30,11 @@ class mailVirtualAppDelegate(NSObject):
 
         # Open Pref file.
         # NSSearchPathForDirectoriesInDomains magic: for a complete mapping http://tinyurl.com/y9ugzou
-        prefFile='%s/Preferences/com.apple.mail.plist' % NSSearchPathForDirectoriesInDomains(5,1,True)[0]
+        # OS X > 10.6
+        prefFile='%s/Mail/V2/MailData/Accounts.plist' % NSSearchPathForDirectoriesInDomains(5,1,True)[0]
+        if not os.access(prefFile, os.W_OK): # We are on OS X < 10.7
+            prefFile='%s/Preferences/com.apple.mail.plist' % NSSearchPathForDirectoriesInDomains(5,1,True)[0]
+
         self.prefFileLabel.setStringValue_(prefFile)
 
         self.accounts=Accounts(filename=prefFile)
