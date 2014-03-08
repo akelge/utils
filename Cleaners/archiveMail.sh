@@ -14,7 +14,7 @@ SERVER="zeus.oob"
 USER1="__public__"
 USER2="__archive__"
 AUTHUSER="dm"
-PASS="chpwd"
+PASS="xxxxx"
 
 if [ "$1" == "-h" ]; then
     cat<<EOB

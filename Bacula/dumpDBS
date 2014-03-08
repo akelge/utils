@@ -20,7 +20,7 @@ level=${3:-Full}
 
 # Defaults
 user="root"
-password="chpwd"
+password="xxxxxx"
 label="`date +%Y%m%d`"
 ext="${dbhost}.${label}.${dbtype}.${level}.sql"
 
