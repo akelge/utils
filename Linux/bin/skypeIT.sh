@@ -10,7 +10,7 @@
 
 # Copy skype to it-skype on your path
 
-it-skype --dbpath ~/.SkypeIT &
+it-skype --secondary --dbpath ~/.SkypeIT &
 
 # vim: set ts=4 sw=4 tw=79 ft=sh :
 
