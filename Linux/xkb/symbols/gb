@@ -11,7 +11,7 @@ xkb_symbols "basic" {
 
     include "latin"
 
-    name[Group1]="English (UK) AK";
+    name[Group1]="English (UK)";
 
     key <AE02>	{ [         2,   quotedbl,  twosuperior,    oneeighth ]	};
     key <AE03>	{ [         3,   sterling, threesuperior,    sterling ]	};
@@ -42,7 +42,7 @@ xkb_symbols "intl" {
 
     include "latin" 
 
-    name[Group1]="English (UK, international with dead keys) AK"; 
+    name[Group1]="English (UK, international with dead keys)"; 
 
     key <AE02>  { [   2,  dead_diaeresis,      twosuperior,     onehalf ] };
     key <AE03>  { [   3,        sterling,    threesuperior,    onethird ] };
@@ -73,7 +73,7 @@ xkb_symbols "extd" {
 
     include "latin"
 
-    name[Group1]="English (UK, extended WinKeys) AK";
+    name[Group1]="English (UK, extended WinKeys)";
     
     // Alphanumeric section
     // key <TLDE> { [ dead_grave,    notsign,       brokenbar,    NoSymbol ] };
@@ -85,7 +85,7 @@ xkb_symbols "extd" {
     key <AE06> { [     6,     asciicircum, dead_circumflex,    NoSymbol ] };
 
     key <AD02> { [   w,                 W,          wacute,      Wacute ] };
-    key <AD03> { [   e,                 E,          egrave,      Egrave ] };
+    key <AD03> { [   e,                 E,          egrave,      eacute ] };
     key <AD06> { [   y,                 Y,          yacute,      Yacute ] };
     key <AD07> { [   u,                 U,          ugrave,      Ugrave ] };
     key <AD08> { [   i,                 I,          igrave,      Igrave ] };
