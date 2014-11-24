@@ -73,12 +73,15 @@ class CentreonMessage(object):
         Mark read and move to 'Closed' subfolder of the current one
         """
         self.markRead()
-        if self.handler.gmail:
-            self.handler.connection.uid("store", self.uid, "+X-GM-LABLES",
-                                        "%s/Closed" % self.handler.folder)
-        else:
-            self.handler.connection.uid("copy", self.uid, "%s/Closed" %
-                                        (self.handler.folder))
+        # if self.handler.gmail:
+            # self.handler.connection.uid("store", self.uid, "+X-GM-LABLES",
+                                        # "%s/Closed" % self.handler.folder)
+            # self.handler.connection.uid("store", self.uid, "-X-GM-LABLES",
+                                        # "%s" % self.handler.folder)
+        # else:
+            # self.handler.connection.uid("copy", self.uid, "%s/Closed" %
+        self.handler.connection.uid("copy", self.uid, "%s/Closed" %
+                                    (self.handler.folder))
 
     def process(self):
         if self.handler.action == "read":
@@ -143,17 +146,17 @@ class CentreonMessageHandler(object):
         self.folder = folder
         self._msgList = None
 
-        self.createClosedFolder()
+        if self.action == 'move':
+            self.createClosedFolder()
 
     def createClosedFolder(self):
         """
         if action is "move" check if dest folder exists, else create it
         """
-        if self.action == 'move':
-            res, data = self.connection.select('%s/Closed' % self.folder)
-            if res == "NO":
-                self.connection.create('%s/Closed' % self.folder)
-            self.connection.select(self.folder)
+        res, data = self.connection.select('%s/Closed' % self.folder)
+        if res == "NO":
+            self.connection.create('%s/Closed' % self.folder)
+        self.connection.select(self.folder)
 
     def recheckMsgList(self):
         self._OkMsgs = None
@@ -168,8 +171,7 @@ class CentreonMessageHandler(object):
             return self._msgList
 
         res, l = self.connection.uid("search", None,
-                                     '(UNSEEN) (HEADER X-module "Centreon") (HEADER X-notification "0")')
-
+                                     '(UNSEEN) (HEADER X-module "centreon") (HEADER X-notification "0")')
         self._msgList = [CentreonMessage(self, uid) for uid in l[0].split()]
 
         return self._msgList
@@ -179,7 +181,7 @@ class CentreonMessageHandler(object):
         pass
 
     def delete(self, uidList):
-        self.connection.uid("store", uidList, "+FLAGS", "(\Deleted)")
+        self.connection.uid("store", uidList, "+FLAGS", "\\Deleted")
         pass
 
     def move(self, uidList):
