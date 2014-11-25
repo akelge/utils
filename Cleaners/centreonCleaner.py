@@ -73,15 +73,13 @@ class CentreonMessage(object):
         Mark read and move to 'Closed' subfolder of the current one
         """
         self.markRead()
-        # if self.handler.gmail:
-            # self.handler.connection.uid("store", self.uid, "+X-GM-LABLES",
-                                        # "%s/Closed" % self.handler.folder)
-            # self.handler.connection.uid("store", self.uid, "-X-GM-LABLES",
-                                        # "%s" % self.handler.folder)
-        # else:
-            # self.handler.connection.uid("copy", self.uid, "%s/Closed" %
-        self.handler.connection.uid("copy", self.uid, "%s/Closed" %
-                                    (self.handler.folder))
+        if self.handler.gmail:
+            # On Gmail add label for dest folder and remove label for old
+            # folder
+            self.handler.connection.uid("store", self.uid, "+X-GM-LABLES", "%s/Closed" % self.handler.folder)
+            self.handler.connection.uid("store", self.uid, "-X-GM-LABLES", self.handler.folder)
+        else:
+            self.handler.connection.uid("copy", self.uid, "%s/Closed" % self.handler.folder)
 
     def process(self):
         if self.handler.action == "read":
@@ -171,7 +169,7 @@ class CentreonMessageHandler(object):
             return self._msgList
 
         res, l = self.connection.uid("search", None,
-                                     '(UNSEEN) (HEADER X-module "centreon") (HEADER X-notification "0")')
+                                     '(UNSEEN) (HEADER X-module "Centreon") (HEADER X-notification "0")')
         self._msgList = [CentreonMessage(self, uid) for uid in l[0].split()]
 
         return self._msgList
@@ -186,8 +184,12 @@ class CentreonMessageHandler(object):
 
     def move(self, uidList):
         self.markRead(uidList)
-        self.connection.uid("copy", uidList, "%s/Closed" % self.folder)
-        self.delete(uidList)
+        if self.gmail:
+            self.connection.uid("store", uidList, '+X-GM-LABELS', "%s/Closed" % self.folder)
+            self.connection.uid("store", uidList, '-X-GM-LABELS', self.folder)
+        else:
+            self.connection.uid("copy", uidList, "%s/Closed" % self.folder)
+            self.delete(uidList)
 
     def processMsgs(self, uidList):
         uidList = ','.join(uidList)  # Convert into a string
