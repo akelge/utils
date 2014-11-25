@@ -52,40 +52,42 @@ class CentreonMessage(object):
         # self.pti = self.prevTroubleId
         # self.pmsgs = self.prevTroubleMsgs
 
-    def markDeleted(self):
+    def delete(self):
         # if self.handler.gmail:
             # self.handler.connection.uid("store", self.uid, "+X-GM-LABLES", "\\Trash")
         # else:
             # self.handler.connection.uid("store", self.uid, "+FLAGS", "(\\Deleted)")
         self.handler.connection.uid("store", self.uid, "+FLAGS", "(\\Deleted)")
 
-    def markUndeleted(self):
+    def undelete(self):
         self.handler.connection.uid("store", self.uid, "-FLAGS", "\\Deleted")
 
-    def markRead(self):
+    def read(self):
         self.handler.connection.uid("store", self.uid, "+FLAGS", "\\Seen")
 
-    def markUnread(self):
+    def unread(self):
         self.handler.connection.uid("store", self.uid, "-FLAGS", "\\Seen")
 
     def moveToClosed(self):
         """
         Mark read and move to 'Closed' subfolder of the current one
         """
-        self.markRead()
-        if self.handler.gmail:
-            # On Gmail add label for dest folder and remove label for old
-            # folder
-            self.handler.connection.uid("store", self.uid, "+X-GM-LABLES", "%s/Closed" % self.handler.folder)
-            self.handler.connection.uid("store", self.uid, "-X-GM-LABLES", self.handler.folder)
-        else:
-            self.handler.connection.uid("copy", self.uid, "%s/Closed" % self.handler.folder)
+        self.read()
+        # if self.handler.gmail:
+            # # On Gmail add label for dest folder and remove label for old
+            # # folder
+            # self.handler.connection.uid("store", self.uid, "+X-GM-LABLES", "%s/Closed" % self.handler.folder)
+            # self.handler.connection.uid("store", self.uid, "-X-GM-LABLES", self.handler.folder)
+        # else:
+            # self.handler.connection.uid("copy", self.uid, "%s/Closed" % self.handler.folder)
+        self.handler.connection.uid("copy", self.uid, "%s/Closed" % self.handler.folder)
+        self.delete()
 
     def process(self):
         if self.handler.action == "read":
-            self.markRead()
+            self.read()
         if self.handler.action == "delete":
-            self.markDeleted()
+            self.delete()
         if self.handler.action == "move":
             self.moveToClosed()
 
@@ -174,28 +176,34 @@ class CentreonMessageHandler(object):
 
         return self._msgList
 
-    def markRead(self, uidList):
+    def read(self, uidList):
         self.connection.uid("store", uidList, "+FLAGS", "\\Seen")
-        pass
+
+    def unread(self, uidList):
+        self.connection.uid("store", uidList, "-FLAGS", "\\Seen")
 
     def delete(self, uidList):
         self.connection.uid("store", uidList, "+FLAGS", "\\Deleted")
-        pass
+
+    def undelete(self, uidList):
+        self.connection.uid("store", uidList, "-FLAGS", "\\Deleted")
 
     def move(self, uidList):
-        self.markRead(uidList)
-        if self.gmail:
-            self.connection.uid("store", uidList, '+X-GM-LABELS', "%s/Closed" % self.folder)
-            self.connection.uid("store", uidList, '-X-GM-LABELS', self.folder)
-        else:
-            self.connection.uid("copy", uidList, "%s/Closed" % self.folder)
-            self.delete(uidList)
+        self.read(uidList)
+        # if self.gmail:
+            # self.connection.uid("store", uidList, '+X-GM-LABELS', "%s/Closed" % self.folder)
+            # self.connection.uid("store", uidList, '-X-GM-LABELS', self.folder)
+        # else:
+            # self.connection.uid("copy", uidList, "%s/Closed" % self.folder)
+            # self.delete(uidList)
+        self.connection.uid("copy", uidList, "%s/Closed" % self.folder)
+        self.delete(uidList)
 
     def processMsgs(self, uidList):
         uidList = ','.join(uidList)  # Convert into a string
 
         if self.action == "read":
-            self.markRead(uidList)
+            self.read(uidList)
         if self.action == "delete":
             self.delete(uidList)
         if self.action == "move":
