@@ -171,7 +171,7 @@ class CentreonMessageHandler(object):
             return self._msgList
 
         res, l = self.connection.uid("search", None,
-                                     '(UNSEEN) (HEADER X-module "Centreon") (HEADER X-notification "0")')
+                                     '(HEADER X-module "Centreon") (HEADER X-notification "0")')
         self._msgList = [CentreonMessage(self, uid) for uid in l[0].split()]
 
         return self._msgList
